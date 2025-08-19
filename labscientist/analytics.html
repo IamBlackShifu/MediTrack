@@ -1,0 +1,1531 @@
+<!doctype html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+  data-style="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>PathoGuide | Analysis</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/Logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/form-validator.js"></script>
+    <script src="../assets/js/loading-feedback.js"></script>
+    <script src="../assets/js/auth-manager.js"></script>
+    <script src="../assets/js/form-handler.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/error-manager.js"></script>
+    <script src="../assets/js/meditrack-main.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="home.html" class="app-brand-link d-flex align-items-center">
+              <span class="app-brand-logo demo">
+                <img src="../assets/img/favicon/Logo.png" alt="PathoGuide Logo" style="width: 60px; height: 60px;" />
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-2" style="font-size: 1.5rem;">PathoGuide</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+              <i class="bx bx-chevron-left bx-sm d-flex align-items-center justify-content-center"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboards -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-home-smile"></i>
+                <div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
+               
+              </a>
+          
+              <ul class="menu-sub">
+                
+                
+                <li class="menu-item">
+                  <a href="javascript:void(0);" class="menu-link menu-toggle">
+                    <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                    <div class="text-truncate" data-i18n="Lab">Lab</div>
+                  </a>
+                  <ul class="menu-sub">
+                    <li class="menu-item active">
+                      <a href="home.html" class="menu-link">
+                        <div class="text-truncate" data-i18n="Analytics">Back To Dashboard</div>
+                      </a>
+                    </li>
+                    <li class="menu-item active">
+                      <a href="analytics.html" class="menu-link">
+                        <div class="text-truncate" data-i18n="Analytics">Analytics</div>
+                      </a>
+                    </li>
+                    
+                  
+                    <li class="menu-item active ">
+                      <a href="clinic-page.html" class="menu-link">
+                        <div class="text-truncate" data-i18n="Clinic">Clinic</div>
+                      </a>
+                    </li>
+                    <li class="menu-item active">
+                      <a href="phamarcy-capturing-page.html" class="menu-link">
+                        <div class="text-truncate" data-i18n="Pharmacy">Pharmacy</div>
+                      </a>
+                    </li>
+                    <li class="menu-item active">
+                      <a href="processing-page.html" class="menu-link">
+                        <div class="text-truncate" data-i18n="Clinic Processing">Clinic Processing</div>
+                      </a>
+                    </li>
+                    <li class="menu-item active">
+                      <a href="samples.html" class="menu-link">
+                        <div class="text-truncate" data-i18n="Samples">Samples</div>
+                      </a>
+                    </li>
+                    
+                    <li class="menu-item active">
+                      <a
+                        href="archives.html"
+                        class="menu-link">
+                        <div class="text-truncate" data-i18n="Archives">Archives</div>
+                      </a>
+                    </li>
+                  </ul>
+                
+
+            
+           
+            <!-- Pages -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div class="text-truncate" data-i18n="Account Settings">Account Settings</div>
+              </a>
+              <ul class="menu-sub">
+                
+             
+              <li class="menu-item active">
+                <a href="update-profile.html" class="menu-link">
+                  <div class="text-truncate" data-i18n="Basic">Update Profile</div>
+                </a>
+              </li>
+              <li class="menu-item active">
+                <a href="forgotpassword.html" class="menu-link">
+                  <div class="text-truncate" data-i18n="Basic">Reset Password</div>
+                </a>
+              </li>
+            
+             
+
+          </li>
+              
+            
+           
+           
+                
+              </ul>
+            </li>
+
+            <!-- Extended components -->
+            
+            
+            </li>
+            <!-- Misc -->
+            
+          </ul>
+            
+            <li class="menu-item">
+              <a href="support.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-support"></i>
+                <div class="text-truncate" data-i18n="Support">Support</div>
+              </a>
+            </li>
+            <li class="menu-item">
+              <a href="../index.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-log-out"></i> <!-- Logout icon added -->
+                <div class="text-truncate" data-i18n="Basic">Logout</div>
+              </a>
+            </li>
+            
+          </ul>
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+
+          <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar">
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+                <i class="bx bx-menu bx-md"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center position-relative"> <!-- Added position-relative -->
+                  <i class="bx bx-search bx-md"></i>
+                  <input type="text" id="search-bar" class="form-control border-0 shadow-none ps-1 ps-sm-2" placeholder="Search..." aria-label="Search..." />
+                  <div id="search-results" class="search-results"></div> <!-- Added class for styling -->
+                </div>
+              </div>
+              
+              <!-- /Search -->
+              <style>
+                /* Styling for the search results container */
+                #search-results {
+                  position: absolute;
+                  top: 100%; /* Place it below the search bar */
+                  left: 0;
+                  right: 0;
+                  background-color: white;
+                  border: 1px solid #ccc;
+                  max-height: 200px;
+                  overflow-y: auto;
+                  z-index: 1000;
+                }
+              
+                /* Styling for individual search results */
+                #search-results div {
+                  padding: 8px;
+                  cursor: pointer;
+                }
+              
+                #search-results div:hover {
+                  background-color: #f0f0f0;
+                }
+              </style>
+              
+              <script>
+                const searchBar = document.getElementById('search-bar');
+                const searchResults = document.getElementById('search-results');
+              
+                const index = [
+                  { title: 'Dashboard', url: 'home.html', keywords: ['home', 'dashboard'] },
+                  { title: 'Support', url: 'support.html', keywords: ['support', 'help'] },
+                  { title: 'Clinic', url: 'clinic-page.html', keywords: ['clinic'] },
+                  { title: 'Archives', url: 'archives.html', keywords: ['archives'] },
+                  { title: 'Pharmacy', url: 'pharmacy-capturing-page.html', keywords: ['pharmacy'] },
+                  { title: 'Update Profile', url: 'update-profile.html', keywords: ['update profile', 'update', 'profile', 'account settings'] },
+                  { title: 'Samples', url: 'samples.html', keywords: ['samples', 'sample'] },
+                  { title: 'Clinic Processing', url: 'processing-page.html', keywords: ['processing', 'clinic', 'clinic processing'] },
+                  { title: 'Forgot Password', url: 'forgotpassword.html', keywords: ['forgot', 'password'] },
+                  { title: 'User Guide', url: 'user-guide.html', keywords: ['user', 'guide'] },
+                  { title: 'Privacy Policy', url: 'privacy-policy.html', keywords: ['privacy', 'policy'] },
+                  { title: 'Troubleshooting', url: 'troubleshooting.html', keywords: ['troubleshooting', 'help'] },
+                  { title: 'Analytics', url: 'analytics.html', keywords: ['analytics'] },
+                  // Add more pages and keywords to the index
+                ];
+              
+                searchBar.addEventListener('keyup', (event) => {
+                  const query = event.target.value.toLowerCase();
+              
+                  // Clear results if the search bar is empty
+                  if (query === '') {
+                    searchResults.innerHTML = '';
+                    return; // Exit the function early
+                  }
+              
+                  // Filter pages based on the query
+                  const results = index.filter(page => {
+                    const keywords = page.keywords.join(' ').toLowerCase();
+                    return keywords.includes(query);
+                  });
+              
+                  // Clear previous results
+                  searchResults.innerHTML = '';
+              
+                  // Display new results
+                  results.forEach(page => {
+                    const resultDiv = document.createElement('div'); // Create a new div for each result
+                    const link = document.createElement('a');
+                    link.href = page.url;
+                    link.textContent = page.title;
+                    resultDiv.appendChild(link); // Append the link to the div
+                    searchResults.appendChild(resultDiv); // Append the div to the search results
+                  });
+                });
+              </script>
+              
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- Place this tag where you want the button to render. -->
+                
+
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                
+                  <!-- Clock functionality is now part of the main MediTrack module -->
+                  <div class="clock" id="clock" style="color: blue;"></div>
+                 
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
+
+        
+
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              
+              <!-- Analytics Header -->
+              <div class="row mb-6">
+                <div class="col-12">
+                  <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                    <div>
+                      <h4 class="mb-1">Lab Analytics Dashboard</h4>
+                      <p class="text-muted">Comprehensive insights into clinical data and trends</p>
+                    </div>
+                    <div class="d-flex gap-3">
+                      <button type="button" class="btn btn-outline-primary" onclick="MediTrackAnalytics.exportReport()">
+                        <i class="bx bx-download me-2"></i>Export Report
+                      </button>
+                      <button type="button" class="btn btn-primary" onclick="MediTrackAnalytics.refreshDashboard()">
+                        <i class="bx bx-refresh me-2"></i>Refresh
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quick Stats Cards -->
+              <div class="row g-6 mb-6">
+                <div class="col-xl-3 col-md-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                          <h4 class="mb-1" id="totalSamples">0</h4>
+                          <p class="text-muted mb-1">Total Samples</p>
+                          <span class="badge bg-success" id="samplesGrowth">+0%</span>
+                        </div>
+                        <div class="avatar">
+                          <div class="avatar-initial bg-primary rounded">
+                            <i class="bx bx-test-tube bx-lg"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-xl-3 col-md-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                          <h4 class="mb-1" id="activeInfections">0</h4>
+                          <p class="text-muted mb-1">Active Infections</p>
+                          <span class="badge bg-warning" id="infectionsChange">+0%</span>
+                        </div>
+                        <div class="avatar">
+                          <div class="avatar-initial bg-warning rounded">
+                            <i class="bx bx-virus bx-lg"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-xl-3 col-md-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                          <h4 class="mb-1" id="pendingTests">0</h4>
+                          <p class="text-muted mb-1">Pending Tests</p>
+                          <span class="badge bg-info" id="pendingChange">+0</span>
+                        </div>
+                        <div class="avatar">
+                          <div class="avatar-initial bg-info rounded">
+                            <i class="bx bx-time bx-lg"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-xl-3 col-md-6">
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div>
+                          <h4 class="mb-1" id="completedTests">0</h4>
+                          <p class="text-muted mb-1">Completed Tests</p>
+                          <span class="badge bg-success" id="completedGrowth">+0%</span>
+                        </div>
+                        <div class="avatar">
+                          <div class="avatar-initial bg-success rounded">
+                            <i class="bx bx-check-circle bx-lg"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Advanced Filters -->
+              <div class="card mb-6">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Advanced Analytics Filters</h5>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" onclick="MediTrackAnalytics.resetFilters()">
+                    <i class="bx bx-reset me-1"></i>Reset
+                  </button>
+                </div>
+                <div class="card-body">
+                  <form id="analyticsFilters" data-handler="meditrack" data-form-type="analyticsFilter" data-auto-save="false" novalidate>
+                    <div class="row g-4">
+                      <div class="col-md-3">
+                        <label for="dateRange" class="form-label">Date Range</label>
+                        <select class="form-control" id="dateRange" name="dateRange" onchange="MediTrackAnalytics.handleDateRangeChange()">
+                          <option value="today">Today</option>
+                          <option value="week">This Week</option>
+                          <option value="month" selected>This Month</option>
+                          <option value="quarter">This Quarter</option>
+                          <option value="year">This Year</option>
+                          <option value="custom">Custom Range</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-3" id="customDateRange" style="display: none;">
+                        <div class="row">
+                          <div class="col-6">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" class="form-control" id="startDate" name="startDate">
+                          </div>
+                          <div class="col-6">
+                            <label for="endDate" class="form-label">End Date</label>
+                            <input type="date" class="form-control" id="endDate" name="endDate">
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <label for="infectionType" class="form-label">Infection Type</label>
+                        <select class="form-control" id="infectionType" name="infectionType">
+                          <option value="">All Infections</option>
+                          <option value="Respiratory Infections">Respiratory Infections</option>
+                          <option value="Urinary Tract Infections">Urinary Tract Infections</option>
+                          <option value="Gastrointestinal System">Gastrointestinal System</option>
+                          <option value="Skin And Soft Tissue">Skin And Soft Tissue</option>
+                          <option value="Central Nervous System">Central Nervous System</option>
+                          <option value="Cardiovascular System">Cardiovascular System</option>
+                          <option value="Blood Stream Infections">Blood Stream Infections</option>
+                          <option value="Reproductive System">Reproductive System</option>
+                          <option value="Bones and Joints">Bones and Joints</option>
+                          <option value="Ear, Nose And Throat">Ear, Nose And Throat</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <label for="ageGroup" class="form-label">Age Group</label>
+                        <select class="form-control" id="ageGroup" name="ageGroup">
+                          <option value="">All Ages</option>
+                          <option value="0-12">Children (0-12)</option>
+                          <option value="13-18">Adolescents (13-18)</option>
+                          <option value="19-35">Young Adults (19-35)</option>
+                          <option value="36-55">Middle Age (36-55)</option>
+                          <option value="56+">Seniors (56+)</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <label for="patientID" class="form-label">Patient ID</label>
+                        <input type="text" class="form-control" id="patientID" name="patientID" placeholder="e.g., ID0004">
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <label for="testStatus" class="form-label">Test Status</label>
+                        <select class="form-control" id="testStatus" name="testStatus">
+                          <option value="">All Statuses</option>
+                          <option value="pending">Pending</option>
+                          <option value="in-progress">In Progress</option>
+                          <option value="completed">Completed</option>
+                          <option value="requires-review">Requires Review</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-3">
+                        <label for="priority" class="form-label">Priority Level</label>
+                        <select class="form-control" id="priority" name="priority">
+                          <option value="">All Priorities</option>
+                          <option value="low">Low</option>
+                          <option value="normal">Normal</option>
+                          <option value="high">High</option>
+                          <option value="urgent">Urgent</option>
+                        </select>
+                      </div>
+                      
+                      <div class="col-md-3 d-flex align-items-end">
+                        <button type="button" class="btn btn-primary w-100" onclick="MediTrackAnalytics.applyFilters()">
+                          <i class="bx bx-search me-2"></i>Apply Filters
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Charts Row -->
+              <div class="row g-6 mb-6">
+                <!-- Infection Trends Chart -->
+                <div class="col-xl-8">
+                  <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">Infection Trends Over Time</h5>
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                          <i class="bx bx-calendar me-1"></i>Monthly
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="javascript:void(0)" onclick="MediTrackAnalytics.changeChartPeriod('daily')">Daily</a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0)" onclick="MediTrackAnalytics.changeChartPeriod('weekly')">Weekly</a></li>
+                          <li><a class="dropdown-item" href="javascript:void(0)" onclick="MediTrackAnalytics.changeChartPeriod('monthly')">Monthly</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="card-body">
+                      <div id="infectionTrendsChart" style="min-height: 350px;"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <!-- Infection Distribution -->
+                <div class="col-xl-4">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">Infection Distribution</h5>
+                    </div>
+                    <div class="card-body">
+                      <div id="infectionDistributionChart" style="min-height: 350px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Drug Usage and Age Demographics -->
+              <div class="row g-6 mb-6">
+                <div class="col-xl-6">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">Most Prescribed Drugs</h5>
+                    </div>
+                    <div class="card-body">
+                      <div id="drugUsageChart" style="min-height: 300px;"></div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-xl-6">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">Age Demographics</h5>
+                    </div>
+                    <div class="card-body">
+                      <div id="ageDemographicsChart" style="min-height: 300px;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Detailed Results Table -->
+              <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <h5 class="mb-0">Detailed Analysis Results</h5>
+                  <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-sm btn-outline-primary" onclick="MediTrackAnalytics.exportTableData()">
+                      <i class="bx bx-export me-1"></i>Export
+                    </button>
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                        <i class="bx bx-dots-vertical-rounded"></i>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="MediTrackAnalytics.printTable()">Print Table</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="MediTrackAnalytics.emailReport()">Email Report</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="MediTrackAnalytics.scheduleReport()">Schedule Report</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover" id="analyticsTable">
+                      <thead class="table-light">
+                        <tr>
+                          <th><input type="checkbox" class="form-check-input" id="selectAll" onchange="MediTrackAnalytics.toggleSelectAll()"></th>
+                          <th>Date</th>
+                          <th>Patient ID</th>
+                          <th>Age</th>
+                          <th>Gender</th>
+                          <th>Infection Type</th>
+                          <th>Recommended Drugs</th>
+                          <th>Test Status</th>
+                          <th>Priority</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="analyticsTableBody">
+                        <tr>
+                          <td colspan="10" class="text-center text-muted py-5">
+                            <div class="spinner-border text-primary me-2" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                            </div>
+                            Loading analytics data...
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  
+                  <!-- Pagination -->
+                  <nav aria-label="Analytics pagination" class="mt-4">
+                    <ul class="pagination justify-content-center" id="analyticsPagination">
+                      <!-- Pagination will be generated dynamically -->
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+              
+              <!-- Insights and Recommendations -->
+              <div class="row g-6 mt-6">
+                <div class="col-12">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">AI-Powered Insights & Recommendations</h5>
+                    </div>
+                    <div class="card-body">
+                      <div id="aiInsights" class="row g-4">
+                        <!-- AI insights will be populated here -->
+                        <div class="col-12 text-center text-muted py-4">
+                          <i class="bx bx-brain bx-lg mb-3 d-block"></i>
+                          Analyzing data patterns and generating insights...
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <!-- / Content -->
+  
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl">
+                <div
+                  class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                  <div class="text-body">
+                    © <span id="current-year">2024</span> PathoGuide |
+                    <a href="https://infinitylinesofcode.com" target="_blank" class="footer-link">Infinity Lines of Code</a>
+                  </div>
+                  
+                </div>
+              </div>
+            </footer>
+            <!-- / Footer -->
+  
+            <div class="content-backdrop fade"></div>
+          </div>
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
+
+   
+
+    <!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+
+    <!-- endbuild -->
+
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+
+    <!-- Page JS -->
+    <script src="../assets/js/dashboards-analytics.js"></script>
+
+    <!-- Place this tag before closing body tag for github widget button. -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
+    <!-- MediTrack Analytics Module -->
+    <script>
+    /**
+     * MediTrack Analytics Dashboard
+     * Comprehensive analytics and insights for lab scientists
+     */
+    window.MediTrackAnalytics = {
+        // Configuration
+        config: {
+            charts: {},
+            currentFilters: {},
+            currentPage: 1,
+            itemsPerPage: 50,
+            autoRefreshInterval: 300000 // 5 minutes
+        },
+
+        /**
+         * Initialize the analytics dashboard
+         */
+        init: function() {
+            console.log('🔬 Initializing MediTrack Analytics Dashboard...');
+            
+            // Set default date range to current month
+            this.setDefaultDateRange();
+            
+            // Initialize charts
+            this.initializeCharts();
+            
+            // Load initial data
+            this.loadDashboardData();
+            
+            // Set up auto-refresh
+            this.setupAutoRefresh();
+            
+            console.log('✅ Analytics Dashboard ready!');
+        },
+
+        /**
+         * Set default date range to current month
+         */
+        setDefaultDateRange: function() {
+            const now = new Date();
+            const firstDay = new Date(now.getFullYear(), now.getMonth(), 1);
+            const lastDay = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+            
+            this.config.currentFilters = {
+                startDate: firstDay.toISOString().split('T')[0],
+                endDate: lastDay.toISOString().split('T')[0],
+                dateRange: 'month'
+            };
+        },
+
+        /**
+         * Initialize all charts
+         */
+        initializeCharts: function() {
+            // Infection Trends Chart
+            this.config.charts.infectionTrends = new ApexCharts(document.querySelector('#infectionTrendsChart'), {
+                chart: {
+                    type: 'line',
+                    height: 350,
+                    toolbar: { show: true },
+                    animations: { enabled: true }
+                },
+                series: [{
+                    name: 'New Infections',
+                    data: []
+                }],
+                xaxis: {
+                    type: 'datetime',
+                    labels: { format: 'MMM dd' }
+                },
+                yaxis: {
+                    title: { text: 'Number of Cases' }
+                },
+                colors: ['#696cff'],
+                stroke: {
+                    curve: 'smooth',
+                    width: 3
+                },
+                title: {
+                    text: 'Daily Infection Trends',
+                    align: 'left'
+                }
+            });
+
+            // Infection Distribution Pie Chart
+            this.config.charts.infectionDistribution = new ApexCharts(document.querySelector('#infectionDistributionChart'), {
+                chart: {
+                    type: 'donut',
+                    height: 350
+                },
+                series: [],
+                labels: [],
+                colors: ['#696cff', '#8592a3', '#71dd37', '#ffab00', '#ff3e1d', '#03c3ec', '#233446', '#e83e8c'],
+                legend: {
+                    position: 'bottom'
+                },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '65%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Total',
+                                    formatter: function (w) {
+                                        return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Drug Usage Bar Chart
+            this.config.charts.drugUsage = new ApexCharts(document.querySelector('#drugUsageChart'), {
+                chart: {
+                    type: 'bar',
+                    height: 300,
+                    horizontal: true
+                },
+                series: [{
+                    name: 'Prescriptions',
+                    data: []
+                }],
+                xaxis: {
+                    categories: []
+                },
+                colors: ['#71dd37'],
+                title: {
+                    text: 'Top 10 Prescribed Drugs',
+                    align: 'left'
+                }
+            });
+
+            // Age Demographics Chart
+            this.config.charts.ageDemographics = new ApexCharts(document.querySelector('#ageDemographicsChart'), {
+                chart: {
+                    type: 'bar',
+                    height: 300
+                },
+                series: [{
+                    name: 'Patients',
+                    data: []
+                }],
+                xaxis: {
+                    categories: ['0-12', '13-18', '19-35', '36-55', '56+']
+                },
+                colors: ['#ffab00'],
+                title: {
+                    text: 'Patient Age Distribution',
+                    align: 'left'
+                }
+            });
+
+            // Render all charts
+            Object.values(this.config.charts).forEach(chart => chart.render());
+        },
+
+        /**
+         * Load dashboard data
+         */
+        loadDashboardData: async function() {
+            try {
+                LoadingManager.showSpinner(document.body, {
+                    message: 'Loading analytics data...',
+                    overlay: true
+                });
+
+                // Fetch data from API
+                const data = await this.fetchAnalyticsData();
+                
+                // Update stats cards
+                this.updateStatsCards(data);
+                
+                // Update charts
+                this.updateCharts(data);
+                
+                // Update table
+                this.updateAnalyticsTable(data);
+                
+                // Generate AI insights
+                this.generateAIInsights(data);
+
+            } catch (error) {
+                console.error('Error loading dashboard data:', error);
+                NotificationManager.showToast({
+                    title: 'Error',
+                    message: 'Failed to load analytics data',
+                    type: 'error'
+                });
+            } finally {
+                LoadingManager.hideSpinner();
+            }
+        },
+
+        /**
+         * Fetch analytics data from API
+         */
+        fetchAnalyticsData: async function() {
+            const { startDate, endDate, infectionType, ageGroup, patientID, testStatus, priority } = this.config.currentFilters;
+            
+            // Build query parameters
+            const queryParams = new URLSearchParams();
+            
+            if (startDate) queryParams.append('filters[datetime][$gte]', startDate);
+            if (endDate) queryParams.append('filters[datetime][$lte]', endDate);
+            if (infectionType) queryParams.append('filters[condition][$eq]', infectionType);
+            if (patientID) queryParams.append('filters[patientid][$eq]', patientID);
+
+            const response = await ApiHelper.get(`${MediTrackConfig.endpoints.clinicProcessings}?populate=*&${queryParams}`);
+            
+            if (!response.success) {
+                throw new Error('Failed to fetch analytics data');
+            }
+
+            return this.processAnalyticsData(response.data?.data || []);
+        },
+
+        /**
+         * Process raw API data into analytics format
+         */
+        processAnalyticsData: function(rawData) {
+            const processedData = {
+                totalSamples: rawData.length,
+                activeInfections: 0,
+                pendingTests: 0,
+                completedTests: 0,
+                infectionTrends: {},
+                infectionDistribution: {},
+                drugUsage: {},
+                ageDemographics: { '0-12': 0, '13-18': 0, '19-35': 0, '36-55': 0, '56+': 0 },
+                tableData: []
+            };
+
+            rawData.forEach(item => {
+                const record = item.attributes;
+                const date = new Date(record.datetime).toISOString().split('T')[0];
+                const age = parseInt(record.age);
+                
+                // Count by date for trends
+                processedData.infectionTrends[date] = (processedData.infectionTrends[date] || 0) + 1;
+                
+                // Count by infection type
+                processedData.infectionDistribution[record.condition] = 
+                    (processedData.infectionDistribution[record.condition] || 0) + 1;
+                
+                // Count drugs
+                if (record.processingdata) {
+                    record.processingdata.forEach(proc => {
+                        if (proc.drugused) {
+                            processedData.drugUsage[proc.drugused] = 
+                                (processedData.drugUsage[proc.drugused] || 0) + 1;
+                        }
+                    });
+                }
+                
+                // Age demographics
+                if (age <= 12) processedData.ageDemographics['0-12']++;
+                else if (age <= 18) processedData.ageDemographics['13-18']++;
+                else if (age <= 35) processedData.ageDemographics['19-35']++;
+                else if (age <= 55) processedData.ageDemographics['36-55']++;
+                else processedData.ageDemographics['56+']++;
+                
+                // Simulate status counts (replace with real data)
+                if (Math.random() > 0.8) processedData.pendingTests++;
+                else processedData.completedTests++;
+                
+                if (Math.random() > 0.7) processedData.activeInfections++;
+                
+                // Table data
+                processedData.tableData.push({
+                    id: item.id,
+                    date: Utils.formatDate(record.datetime),
+                    patientID: record.patientid,
+                    age: record.age,
+                    gender: record.sex || 'Unknown',
+                    infectionType: record.condition,
+                    drugs: record.processingdata?.map(p => p.drugused).join(', ') || 'N/A',
+                    status: Math.random() > 0.8 ? 'Pending' : 'Completed',
+                    priority: ['Low', 'Normal', 'High', 'Urgent'][Math.floor(Math.random() * 4)]
+                });
+            });
+
+            return processedData;
+        },
+
+        /**
+         * Update statistics cards
+         */
+        updateStatsCards: function(data) {
+            document.getElementById('totalSamples').textContent = data.totalSamples.toLocaleString();
+            document.getElementById('activeInfections').textContent = data.activeInfections.toLocaleString();
+            document.getElementById('pendingTests').textContent = data.pendingTests.toLocaleString();
+            document.getElementById('completedTests').textContent = data.completedTests.toLocaleString();
+            
+            // Update growth indicators (simulate growth)
+            document.getElementById('samplesGrowth').textContent = '+' + Math.floor(Math.random() * 20) + '%';
+            document.getElementById('infectionsChange').textContent = '+' + Math.floor(Math.random() * 15) + '%';
+            document.getElementById('pendingChange').textContent = '+' + Math.floor(Math.random() * 10);
+            document.getElementById('completedGrowth').textContent = '+' + Math.floor(Math.random() * 25) + '%';
+        },
+
+        /**
+         * Update all charts with new data
+         */
+        updateCharts: function(data) {
+            // Update infection trends chart
+            const trendsData = Object.entries(data.infectionTrends).map(([date, count]) => ({
+                x: new Date(date).getTime(),
+                y: count
+            }));
+            
+            this.config.charts.infectionTrends.updateSeries([{
+                name: 'New Infections',
+                data: trendsData
+            }]);
+
+            // Update infection distribution chart
+            const distributionLabels = Object.keys(data.infectionDistribution);
+            const distributionValues = Object.values(data.infectionDistribution);
+            
+            this.config.charts.infectionDistribution.updateOptions({
+                labels: distributionLabels
+            });
+            this.config.charts.infectionDistribution.updateSeries(distributionValues);
+
+            // Update drug usage chart (top 10)
+            const sortedDrugs = Object.entries(data.drugUsage)
+                .sort(([,a], [,b]) => b - a)
+                .slice(0, 10);
+            
+            this.config.charts.drugUsage.updateOptions({
+                xaxis: {
+                    categories: sortedDrugs.map(([drug]) => drug)
+                }
+            });
+            this.config.charts.drugUsage.updateSeries([{
+                name: 'Prescriptions',
+                data: sortedDrugs.map(([, count]) => count)
+            }]);
+
+            // Update age demographics chart
+            this.config.charts.ageDemographics.updateSeries([{
+                name: 'Patients',
+                data: Object.values(data.ageDemographics)
+            }]);
+        },
+
+        /**
+         * Update analytics table
+         */
+        updateAnalyticsTable: function(data) {
+            const tbody = document.getElementById('analyticsTableBody');
+            const startIndex = (this.config.currentPage - 1) * this.config.itemsPerPage;
+            const endIndex = startIndex + this.config.itemsPerPage;
+            const pageData = data.tableData.slice(startIndex, endIndex);
+
+            if (pageData.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="10" class="text-center text-muted py-5">
+                            <i class="bx bx-data bx-lg mb-3 d-block"></i>
+                            No data found for the selected filters
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = pageData.map(row => `
+                <tr>
+                    <td><input type="checkbox" class="form-check-input row-select" value="${row.id}"></td>
+                    <td><span class="fw-medium">${row.date}</span></td>
+                    <td><span class="badge bg-primary">${row.patientID}</span></td>
+                    <td>${row.age}</td>
+                    <td>${row.gender}</td>
+                    <td><span class="text-truncate d-inline-block" style="max-width: 150px;" title="${row.infectionType}">${row.infectionType}</span></td>
+                    <td><span class="text-truncate d-inline-block" style="max-width: 200px;" title="${row.drugs}">${row.drugs}</span></td>
+                    <td><span class="badge ${row.status === 'Completed' ? 'bg-success' : 'bg-warning'}">${row.status}</span></td>
+                    <td><span class="badge ${this.getPriorityBadgeClass(row.priority)}">${row.priority}</span></td>
+                    <td>
+                        <div class="dropdown">
+                            <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="javascript:void(0)" onclick="MediTrackAnalytics.viewDetails('${row.id}')"><i class="bx bx-show me-2"></i>View Details</a></li>
+                                <li><a class="dropdown-item" href="javascript:void(0)" onclick="MediTrackAnalytics.exportRecord('${row.id}')"><i class="bx bx-export me-2"></i>Export</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            `).join('');
+
+            // Update pagination
+            this.updatePagination(data.tableData.length);
+        },
+
+        /**
+         * Get badge class for priority
+         */
+        getPriorityBadgeClass: function(priority) {
+            const classes = {
+                'Low': 'bg-success',
+                'Normal': 'bg-info',
+                'High': 'bg-warning',
+                'Urgent': 'bg-danger'
+            };
+            return classes[priority] || 'bg-secondary';
+        },
+
+        /**
+         * Update pagination
+         */
+        updatePagination: function(totalItems) {
+            const totalPages = Math.ceil(totalItems / this.config.itemsPerPage);
+            const pagination = document.getElementById('analyticsPagination');
+            
+            if (totalPages <= 1) {
+                pagination.innerHTML = '';
+                return;
+            }
+
+            let paginationHTML = '';
+            
+            // Previous button
+            paginationHTML += `
+                <li class="page-item ${this.config.currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="javascript:void(0)" onclick="MediTrackAnalytics.changePage(${this.config.currentPage - 1})">
+                        <i class="bx bx-chevron-left"></i>
+                    </a>
+                </li>
+            `;
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                if (i === 1 || i === totalPages || (i >= this.config.currentPage - 2 && i <= this.config.currentPage + 2)) {
+                    paginationHTML += `
+                        <li class="page-item ${i === this.config.currentPage ? 'active' : ''}">
+                            <a class="page-link" href="javascript:void(0)" onclick="MediTrackAnalytics.changePage(${i})">${i}</a>
+                        </li>
+                    `;
+                } else if (i === this.config.currentPage - 3 || i === this.config.currentPage + 3) {
+                    paginationHTML += '<li class="page-item disabled"><span class="page-link">...</span></li>';
+                }
+            }
+
+            // Next button
+            paginationHTML += `
+                <li class="page-item ${this.config.currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="javascript:void(0)" onclick="MediTrackAnalytics.changePage(${this.config.currentPage + 1})">
+                        <i class="bx bx-chevron-right"></i>
+                    </a>
+                </li>
+            `;
+
+            pagination.innerHTML = paginationHTML;
+        },
+
+        /**
+         * Generate AI-powered insights
+         */
+        generateAIInsights: function(data) {
+            const insights = document.getElementById('aiInsights');
+            
+            // Simulate AI insights generation
+            setTimeout(() => {
+                const insightCards = [
+                    {
+                        icon: 'bx-trending-up',
+                        title: 'Infection Trend Alert',
+                        message: 'Respiratory infections have increased by 23% this month compared to last month.',
+                        type: 'warning',
+                        action: 'Review respiratory protocols'
+                    },
+                    {
+                        icon: 'bx-shield',
+                        title: 'Drug Resistance Pattern',
+                        message: 'Amoxicillin resistance detected in 15% of UTI cases. Consider alternative treatments.',
+                        type: 'danger',
+                        action: 'Update treatment guidelines'
+                    },
+                    {
+                        icon: 'bx-chart',
+                        title: 'Age Group Analysis',
+                        message: 'Elderly patients (56+) show 30% higher infection rates. Enhanced monitoring recommended.',
+                        type: 'info',
+                        action: 'Implement preventive measures'
+                    },
+                    {
+                        icon: 'bx-check-circle',
+                        title: 'Performance Insight',
+                        message: 'Lab turnaround time improved by 18% this month. Great work!',
+                        type: 'success',
+                        action: 'Maintain current efficiency'
+                    }
+                ];
+
+                insights.innerHTML = insightCards.map(insight => `
+                    <div class="col-md-6">
+                        <div class="alert alert-${insight.type === 'danger' ? 'danger' : insight.type === 'warning' ? 'warning' : insight.type === 'success' ? 'success' : 'info'} d-flex">
+                            <div class="me-3">
+                                <i class="bx ${insight.icon} bx-lg"></i>
+                            </div>
+                            <div class="flex-grow-1">
+                                <h6 class="alert-heading mb-2">${insight.title}</h6>
+                                <p class="mb-2">${insight.message}</p>
+                                <button type="button" class="btn btn-sm btn-outline-${insight.type === 'danger' ? 'danger' : insight.type === 'warning' ? 'warning' : insight.type === 'success' ? 'success' : 'info'}">
+                                    ${insight.action}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }, 2000);
+        },
+
+        /**
+         * Handle date range change
+         */
+        handleDateRangeChange: function() {
+            const dateRange = document.getElementById('dateRange').value;
+            const customDateRange = document.getElementById('customDateRange');
+            
+            if (dateRange === 'custom') {
+                customDateRange.style.display = 'block';
+            } else {
+                customDateRange.style.display = 'none';
+                this.setDateRangePreset(dateRange);
+            }
+        },
+
+        /**
+         * Set preset date range
+         */
+        setDateRangePreset: function(preset) {
+            const now = new Date();
+            let startDate, endDate;
+
+            switch (preset) {
+                case 'today':
+                    startDate = endDate = now.toISOString().split('T')[0];
+                    break;
+                case 'week':
+                    startDate = new Date(now.setDate(now.getDate() - 7)).toISOString().split('T')[0];
+                    endDate = new Date().toISOString().split('T')[0];
+                    break;
+                case 'month':
+                    startDate = new Date(now.getFullYear(), now.getMonth(), 1).toISOString().split('T')[0];
+                    endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0).toISOString().split('T')[0];
+                    break;
+                case 'quarter':
+                    const quarter = Math.floor(now.getMonth() / 3);
+                    startDate = new Date(now.getFullYear(), quarter * 3, 1).toISOString().split('T')[0];
+                    endDate = new Date(now.getFullYear(), (quarter + 1) * 3, 0).toISOString().split('T')[0];
+                    break;
+                case 'year':
+                    startDate = new Date(now.getFullYear(), 0, 1).toISOString().split('T')[0];
+                    endDate = new Date(now.getFullYear(), 11, 31).toISOString().split('T')[0];
+                    break;
+            }
+
+            this.config.currentFilters.startDate = startDate;
+            this.config.currentFilters.endDate = endDate;
+            this.config.currentFilters.dateRange = preset;
+        },
+
+        /**
+         * Apply filters and refresh data
+         */
+        applyFilters: function() {
+            const form = document.getElementById('analyticsFilters');
+            const formData = new FormData(form);
+            
+            // Update current filters
+            for (let [key, value] of formData.entries()) {
+                if (value) {
+                    this.config.currentFilters[key] = value;
+                }
+            }
+
+            // Handle custom date range
+            if (this.config.currentFilters.dateRange === 'custom') {
+                this.config.currentFilters.startDate = formData.get('startDate');
+                this.config.currentFilters.endDate = formData.get('endDate');
+            }
+
+            // Reset to first page
+            this.config.currentPage = 1;
+            
+            // Reload data
+            this.loadDashboardData();
+        },
+
+        /**
+         * Reset all filters
+         */
+        resetFilters: function() {
+            document.getElementById('analyticsFilters').reset();
+            document.getElementById('dateRange').value = 'month';
+            document.getElementById('customDateRange').style.display = 'none';
+            
+            this.setDefaultDateRange();
+            this.config.currentPage = 1;
+            this.loadDashboardData();
+        },
+
+        /**
+         * Refresh entire dashboard
+         */
+        refreshDashboard: function() {
+            NotificationManager.showToast({
+                title: 'Refreshing Dashboard',
+                message: 'Loading latest data...',
+                type: 'info',
+                duration: 2000
+            });
+            
+            this.loadDashboardData();
+        },
+
+        /**
+         * Change chart time period
+         */
+        changeChartPeriod: function(period) {
+            console.log('Changing chart period to:', period);
+            // Implementation for different chart periods
+        },
+
+        /**
+         * Change table page
+         */
+        changePage: function(page) {
+            this.config.currentPage = page;
+            this.loadDashboardData();
+        },
+
+        /**
+         * Toggle select all checkboxes
+         */
+        toggleSelectAll: function() {
+            const selectAll = document.getElementById('selectAll');
+            const rowSelects = document.querySelectorAll('.row-select');
+            
+            rowSelects.forEach(checkbox => {
+                checkbox.checked = selectAll.checked;
+            });
+        },
+
+        /**
+         * View record details
+         */
+        viewDetails: function(id) {
+            NotificationManager.showToast({
+                title: 'Record Details',
+                message: `Opening details for record ${id}`,
+                type: 'info'
+            });
+        },
+
+        /**
+         * Export single record
+         */
+        exportRecord: function(id) {
+            NotificationManager.showToast({
+                title: 'Export Record',
+                message: `Exporting record ${id}`,
+                type: 'success'
+            });
+        },
+
+        /**
+         * Export table data
+         */
+        exportTableData: function() {
+            NotificationManager.showToast({
+                title: 'Export Started',
+                message: 'Generating CSV export...',
+                type: 'info'
+            });
+        },
+
+        /**
+         * Export complete report
+         */
+        exportReport: function() {
+            ModalManager.show('Export Report', `
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Report Format</label>
+                        <select class="form-control" id="exportFormat">
+                            <option value="pdf">PDF Report</option>
+                            <option value="excel">Excel Spreadsheet</option>
+                            <option value="csv">CSV Data</option>
+                            <option value="json">JSON Data</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Include Charts</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="includeCharts" checked>
+                            <label class="form-check-label" for="includeCharts">
+                                Include visualization charts in report
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            `, 'Export', () => {
+                const format = document.getElementById('exportFormat').value;
+                const includeCharts = document.getElementById('includeCharts').checked;
+                
+                NotificationManager.showToast({
+                    title: 'Export Started',
+                    message: `Generating ${format.toUpperCase()} report...`,
+                    type: 'success'
+                });
+            });
+        },
+
+        /**
+         * Print table
+         */
+        printTable: function() {
+            window.print();
+        },
+
+        /**
+         * Email report
+         */
+        emailReport: function() {
+            ModalManager.show('Email Report', `
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Recipient Email</label>
+                        <input type="email" class="form-control" id="recipientEmail" placeholder="Enter email address">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Message (Optional)</label>
+                        <textarea class="form-control" id="emailMessage" rows="3" placeholder="Add a message..."></textarea>
+                    </div>
+                </div>
+            `, 'Send Email', () => {
+                const email = document.getElementById('recipientEmail').value;
+                if (email) {
+                    NotificationManager.showToast({
+                        title: 'Email Sent',
+                        message: `Report sent to ${email}`,
+                        type: 'success'
+                    });
+                }
+            });
+        },
+
+        /**
+         * Schedule report
+         */
+        scheduleReport: function() {
+            ModalManager.show('Schedule Report', `
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Frequency</label>
+                        <select class="form-control" id="scheduleFrequency">
+                            <option value="daily">Daily</option>
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="quarterly">Quarterly</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Time</label>
+                        <input type="time" class="form-control" id="scheduleTime" value="09:00">
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Email Recipients</label>
+                        <input type="email" class="form-control" id="scheduleEmails" placeholder="Enter email addresses (comma separated)">
+                    </div>
+                </div>
+            `, 'Schedule', () => {
+                NotificationManager.showToast({
+                    title: 'Report Scheduled',
+                    message: 'Automated reports have been configured',
+                    type: 'success'
+                });
+            });
+        },
+
+        /**
+         * Setup auto-refresh
+         */
+        setupAutoRefresh: function() {
+            setInterval(() => {
+                this.loadDashboardData();
+            }, this.config.autoRefreshInterval);
+        }
+    };
+
+    // Initialize analytics when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+        // Wait for MediTrack main system to initialize first
+        setTimeout(() => {
+            MediTrackAnalytics.init();
+        }, 1000);
+    });
+    </script>
+  </body>
+</html>

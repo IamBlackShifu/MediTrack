@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default"
+      data-assets-path="..assets/" data-template="vertical-menu-template-free" data-style="light">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <title>PathoGuide | Register</title>
+    <meta name="description" content=""/>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/Logo.png"/>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet"/>
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css"/>
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css"/>
+    <link rel="stylesheet" href="../assets/css/demo.css"/>
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"/>
+
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/pages/page-auth.css"/>
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../assets/js/config.js"></script>
+</head>
+<body>
+<!-- Content -->
+<div class="container-xxl">
+    <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+            <!-- Register Card -->
+            <div class="card px-sm-6 px-0">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="app-brand justify-content-center mb-6">
+                        <a href="home.html" class="app-brand-link gap-2">
+                            <span class="app-brand-logo demo">
+                                <img src="../assets/img/favicon/Logo.png" alt="PathoGuide Logo" style="width: 60px; height: 60px;" />
+                            </span>
+                            <span class="app-brand-text demo text-heading fw-bold">
+                                <span style="color: black;">Patho</span><span style="color: #F05123;">Guide</span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- /Logo -->
+                    <h4 class="mb-1">Welcome to PathoGuide</h4>
+                    <p class="mb-6">Sign Up To Start</p>
+
+                    <form id="formAuthentication" class="mb-6">
+                        <div class="mb-6">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username"
+                                   placeholder="Enter your username" autofocus required/>
+                        </div>
+                        <div class="mb-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   placeholder="Enter your email" required/>
+                        </div>
+                        <div class="mb-6 form-password-toggle">
+                            <label class="form-label" for="password">Password</label>
+                            <div class="input-group input-group-merge">
+                                <input type="password" id="password" class="form-control" name="password"
+                                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                                       aria-describedby="password" required/>
+                                <span class="input-group-text cursor-pointer" id="togglePassword">
+                                    <i class="bx bx-hide"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="userType" class="form-label">User Type</label>
+                            <select class="form-control" id="userType" name="userType" required>
+                                <option value="">Select User Type</option>
+                                <option value="clinician">Clinician</option>
+                                <option value="laboratory_scientist">Laboratory Scientist</option>
+                                <option value="pharmacy">Pharmacy</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary d-grid w-100">Sign up</button>
+                    </form>
+
+                    <p class="text-center">
+                        <span>Already have an account?</span>
+                        <a href="../index.html">
+                            <span>Sign in instead</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <!-- Register Card -->
+        </div>
+    </div>
+</div>
+
+<!-- Core JS -->
+<script src="../assets/vendor/libs/jquery/jquery.js"></script>
+<script src="../assets/vendor/libs/popper/popper.js"></script>
+<script src="../assets/vendor/js/bootstrap.js"></script>
+<script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+<script src="../assets/vendor/js/menu.js"></script>
+
+<script>
+document.getElementById('formAuthentication').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const userType = document.getElementById('userType').value;
+
+    axios.post('https://pathoguide.co.zw:1338/api/auth/local/register', {
+        username: username,
+        email: email,
+        password: password,
+        department: userType // Send userType as department to the Strapi backend
+    })
+    .then(function (response) {
+        console.log('User created successfully:', response.data);
+        window.location.href = 'home.html'; // Redirect to home page after successful registration
+    })
+    .catch(function (error) {
+        console.error('An error occurred:', error.response);
+        alert('Registration failed: ' + error.response.data.error.message);
+    });
+});
+
+// Toggle password visibility
+document.getElementById('togglePassword').addEventListener('click', function () {
+    const passwordField = document.getElementById('password');
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+
+    // Toggle the icon
+    const icon = this.querySelector('i');
+    icon.classList.toggle('bx-hide');
+    icon.classList.toggle('bx-show');
+});
+</script>
+</body>
+</html>

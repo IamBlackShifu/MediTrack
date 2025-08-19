@@ -96,7 +96,7 @@
 
                     <p class="text-center">
                         <span>Already have an account?</span>
-                        <a href="/MediTrack/index.html">
+                        <a href="../index.html">
                             <span>Sign in instead</span>
                         </a>
                     </p>
@@ -130,13 +130,20 @@
             return;
         }
 
-        axios.post('http://198.177.123.228:1337/api/auth/local/register', {
+        // Use secure API configuration for registration
+        ApiHelper.post(MediTrackConfig.endpoints.auth.register, {
             username: username,
             email: email,
             password: password
         })
         .then(function (response) {
-            console.log('User created successfully:', response.data);
+            return response.json();
+        })
+        .then(function (data) {
+            console.log('User created successfully:', data);
+            if (data.jwt) {
+                TokenManager.setToken(data.jwt);
+            }
             window.location.href = 'home.html'; // Redirect to home page after successful registration
         })
         .catch(function (error) {

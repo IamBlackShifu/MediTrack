@@ -43,10 +43,17 @@
 
     <!-- Helpers -->
     <script src="../assets/vendor/js/helpers.js"></script>
-    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
-    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    
+    <!-- MediTrack Core Modules - Load in specific order -->
     <script src="../assets/js/config.js"></script>
-  </head>
+    <script src="../assets/js/form-validator.js"></script>
+    <script src="../assets/js/loading-feedback.js"></script>
+    <script src="../assets/js/auth-manager.js"></script>
+    <script src="../assets/js/form-handler.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/error-manager.js"></script>
+    <script src="../assets/js/meditrack-main.js"></script>
+</head>
 
   <body>
     <!-- Layout wrapper -->
@@ -121,36 +128,7 @@
             <li class="menu-item active open">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-home-smile"></i>
-<<<<<<< HEAD
-                <div class="text-truncate" data-i18n="Dashboards">Home</div>
-                
-              </a>
-              <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="home.html" class="menu-link">
-                    <div class="text-truncate" data-i18n="Analytics">Analytics</div>
-                  </a>
-                </li>
-                
-                <li class="menu-item ">
-                  <a
-                    href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/dashboards-crm.html"
-                    target="_blank"
-                    class="menu-link">
-                    <div class="text-truncate" data-i18n="CRM">Clinic</div>
-                    
-                  </a>
-                </li>
-                <li class="menu-item ">
-                  <a
-                    href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/vertical-menu-template/app-ecommerce-dashboard.html"
-                    target="_blank"
-                    class="menu-link">
-                    <div class="text-truncate" data-i18n="eCommerce">Pharmacy</div>
-                  </a>
-                </li>
-=======
-                <div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
+<div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
                
               </a>
           
@@ -204,51 +182,21 @@
                       </a>
                     </li>
                   </ul>
->>>>>>> develop
+
                 
 
             
            
             <!-- Pages -->
-<<<<<<< HEAD
-            <li class="menu-item ">
-              <a href="javascript:void(0);" class="menu-link">
-=======
-            <li class="menu-item">
+<li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
->>>>>>> develop
+
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div class="text-truncate" data-i18n="Account Settings">Account Settings</div>
               </a>
               <ul class="menu-sub">
                 
-<<<<<<< HEAD
-              <li class="menu-item active">
-                <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                  <div class="text-truncate" data-i18n="Basic">Login</div>
-                </a>
-              </li>
-              <li class="menu-item active">
-                <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                  <div class="text-truncate" data-i18n="Basic">Register</div>
-                </a>
-              </li>
-              <li class="menu-item active">
-                <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                  <div class="text-truncate" data-i18n="Basic">Forgot Password</div>
-                </a>
-              </li>
-              <li class="menu-item active">
-                <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                  <div class="text-truncate" data-i18n="Basic">Forgotten Password</div>
-                </a>
-              </li>
-
-          </li>
-              </ul>
-=======
-             
-              <li class="menu-item active">
+<li class="menu-item active">
                 <a href="update-profile.html" class="menu-link">
                   <div class="text-truncate" data-i18n="Basic">Update Profile</div>
                 </a>
@@ -262,7 +210,7 @@
 
           </li>
               
->>>>>>> develop
+
             
            
            
@@ -276,36 +224,18 @@
             </li>
             <!-- Misc -->
             
-<<<<<<< HEAD
-            <li class="menu-item">
-              <a
-                href=""
-                target="_blank"
-                class="menu-link">
-                <i class="menu-icon tf-icons bx bx-file"></i>
-                <div class="text-truncate" data-i18n="Documentation">Archives</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a
-                href=""
-                target="_blank"
-=======
-          </ul>
+</ul>
             
             <li class="menu-item">
               <a
                 href="support.html"
->>>>>>> develop
+
                 class="menu-link">
                 <i class="menu-icon tf-icons bx bx-support"></i>
                 <div class="text-truncate" data-i18n="Support">Support</div>
               </a>
             </li>
-<<<<<<< HEAD
-            
-=======
->>>>>>> develop
+
           </ul>
         </aside>
         <!-- / Menu -->
@@ -326,18 +256,7 @@
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center">
-<<<<<<< HEAD
-                <div class="nav-item d-flex align-items-center">
-                  <i class="bx bx-search bx-md"></i>
-                  <input
-                    type="text"
-                    class="form-control border-0 shadow-none ps-1 ps-sm-2"
-                    placeholder="Search..."
-                    aria-label="Search..." />
-                </div>
-              </div>
-=======
-                <div class="nav-item d-flex align-items-center position-relative"> <!-- Added position-relative -->
+<div class="nav-item d-flex align-items-center position-relative"> <!-- Added position-relative -->
                   <i class="bx bx-search bx-md"></i>
                   <input type="text" id="search-bar" class="form-control border-0 shadow-none ps-1 ps-sm-2" placeholder="Search..." aria-label="Search..." />
                   <div id="search-results" class="search-results"></div> <!-- Added class for styling -->
@@ -370,86 +289,25 @@
                 }
               </style>
               
-              <script>
-                const searchBar = document.getElementById('search-bar');
-                const searchResults = document.getElementById('search-results');
-              
-                const index = [
-                  { title: 'Home', url: 'home.html', keywords: ['home', 'dashboard'] },
-                  { title: 'Support', url: 'support.html', keywords: ['support', 'help'] },
-                  { title: 'Clinic', url: 'clinic-page.html', keywords: ['clinic'] },
-                  { title: 'Archives', url: 'archives.html', keywords: ['archives'] },
-                  { title: 'Pharmacy', url: 'pharmacy-capturing-page.html', keywords: ['pharmacy'] },
-                  { title: 'Update Profile', url: 'update-profile.html', keywords: ['update profile', 'update', 'profile', 'account settings'] },
-                  { title: 'Samples', url: 'samples.html', keywords: ['samples', 'sample'] },
-                  { title: 'Clinic Processing', url: 'processing-page.html', keywords: ['processing', 'clinic', 'clinic processing'] },
-                  { title: 'Forgot Password', url: 'forgotpassword.html', keywords: ['forgot', 'password'] },
-                  { title: 'User Guide', url: 'user-guide.html', keywords: ['user', 'guide'] },
-                  { title: 'Privacy Policy', url: 'privacy-policy.html', keywords: ['privacy', 'policy'] },
-                  { title: 'Troubleshooting', url: 'troubleshooting.html', keywords: ['troubleshooting', 'help'] },
-                  { title: 'Analytics', url: 'home.html', keywords: ['analytics'] },
-                  // Add more pages and keywords to the index
-                ];
-              
-                searchBar.addEventListener('keyup', (event) => {
-                  const query = event.target.value.toLowerCase();
-              
-                  // Clear results if the search bar is empty
-                  if (query === '') {
-                    searchResults.innerHTML = '';
-                    return; // Exit the function early
-                  }
-              
-                  // Filter pages based on the query
-                  const results = index.filter(page => {
-                    const keywords = page.keywords.join(' ').toLowerCase();
-                    return keywords.includes(query);
-                  });
-              
-                  // Clear previous results
-                  searchResults.innerHTML = '';
-              
-                  // Display new results
-                  results.forEach(page => {
-                    const resultDiv = document.createElement('div'); // Create a new div for each result
-                    const link = document.createElement('a');
-                    link.href = page.url;
-                    link.textContent = page.title;
-                    resultDiv.appendChild(link); // Append the link to the div
-                    searchResults.appendChild(resultDiv); // Append the div to the search results
-                  });
-                });
-              </script>
+              <!-- Search functionality is now handled by the global MediTrack quick search (Ctrl+K) -->
              
->>>>>>> develop
+
               <!-- /Search -->
 
               <ul class="navbar-nav flex-row align-items-center ms-auto">
                 <!-- Place this tag where you want the button to render. -->
-<<<<<<< HEAD
-                <li class="nav-item lh-1 me-4">
-                  <a
-                    class="github-button"
-                    href="https://github.com/themeselection/sneat-html-admin-template-free"
-                    data-icon="octicon-star"
-                    data-size="large"
-                    data-show-count="true"
-                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub"
-                    >Star</a
-                  >
-                </li>
-
+                <!-- Search functionality is now handled by the global MediTrack quick search (Ctrl+K) -->
+                <!-- Clock functionality is now part of the Utils module and can be added globally -->
+                <div class="clock" id="clock" style="color: blue;"></div>
+               
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
-                  <a
-                    class="nav-link dropdown-toggle hide-arrow p-0"
-                    href="javascript:void(0);"
-                    data-bs-toggle="dropdown">
+                  <a class="nav-link dropdown-toggle hide-arrow p-0" href="javascript:void(0);" data-bs-toggle="dropdown">
                     <div class="avatar avatar-online">
                       <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                     </div>
                   </a>
-                  <ul class="dropdown-menu dropdown-menu-end">
+                  <ul class="dropdown-menu dropdown-menu-end mt-3 py-2">
                     <li>
                       <a class="dropdown-item" href="#">
                         <div class="d-flex">
@@ -481,7 +339,7 @@
                         <span class="d-flex align-items-center align-middle">
                           <i class="flex-shrink-0 bx bx-credit-card bx-md me-3"></i
                           ><span class="flex-grow-1 align-middle">Billing Plan</span>
-                          <span class="flex-shrink-0 badge rounded-pill bg-danger">4</span>
+                          <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
                         </span>
                       </a>
                     </li>
@@ -493,27 +351,6 @@
                         <i class="bx bx-power-off bx-md me-3"></i><span>Log Out</span>
                       </a>
                     </li>
-=======
-                <script>
-                  function updateClock() {
-                    const now = new Date();
-                    const hours = now.getHours().toString().padStart(2, '0');
-                    const minutes = now.getMinutes().toString().padStart(2, '0');
-                    const seconds = now.getSeconds().toString().padStart(2, '0');
-                    const timeString = `${hours}:${minutes}:${seconds}`;
-                    
-                    document.getElementById('clock').textContent = timeString;
-                  }
-                  
-                  // Update the clock every second
-                  setInterval(updateClock, 1000);
-                  
-                  // Initial call to display the clock immediately
-                  updateClock();
-                </script>
-                <div class="clock" id="clock" style="color: blue;"></div>
-               
->>>>>>> develop
                   </ul>
                 </li>
                 <!--/ User -->
@@ -531,96 +368,38 @@
               <div class="row g-6">
                 <div class="col-md-8">
                   <div class="card">
-                    <h5 class="card-header">Clinic</h5>
+                    <h5 class="card-header">Clinic Sample Collection Form</h5>
           <div class="card-body">
-<<<<<<< HEAD
-                      <form>
-
-
-                      <div class="mb-4 row">
-                        <label for="html5-datetime-local-input" class="col-md-2 col-form-label">Datetime</label>
-                        <div class="col-md-10">
-                          <input
-                            class="form-control"
-                            type="datetime-local"
-                            value="2021-06-18T12:30:00"
-                            id="html5-datetime-local-input" />
-                        </div>
-                      </div>
-
-                      <div class="mb-4 row">
-                        <label for="html5-text-input" class="col-md-2 col-form-label">Patient ID</label>
-                        <div class="col-md-10">
-                          <input class="form-control" type="text" placeholder="eg ... MN200-01" id="html5-text-input" />
-                        </div>
-                      </div>
-
-                      
-                  <div class="mb-4 row">
-                    <label for="html5-number-input" class="col-md-2 col-form-label">Age</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="number" placeholder="18" id="html5-number-input" />
-                    </div>
-                  </div>
-        
-                  <div class="mb-4 row">
-                    <label for="html5-text-input" class="col-md-2 col-form-label">Sex</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="text" placeholder="Female/Male" id="html5-text-input" />
-                    </div>
-                  </div>
-        
-                  <div class="mb-4 row">
-                    <label for="html5-text-input" class="col-md-2 col-form-label">Ward</label>
-                    <div class="col-md-10">
-                      <input class="form-control" type="text" placeholder="Ward" id="html5-text-input" />
-                    </div>
-                  </div>
-        
-                  <div class="mb-4 row">
-                    <label for="html5-text-input" class="col-md-2 col-form-label">Condition</label>
-                    <div class="col-md-10">
-                      <textarea class="form-control" id="Condition" placeholder="Enter Condition"  rows="3"></textarea>
-                    </div>
-                  </div>
-                  
-        
-                  
-                    <button type="submit" class="btn btn-primary">Send</button>
-                  
-        
-                  
-
-
-                </form>
-=======
-            <form id="clinicForm">
+<form id="clinicForm" data-handler="meditrack" data-form-type="clinicForm" data-auto-save="true" data-clear-on-success="false" data-success-redirect="/pages/home.html" novalidate>
 
               <div class="mb-4 row">
-                <label for="datetime-input" class="col-md-2 col-form-label">Datetime</label>
+                <label for="datetime-input" class="col-md-2 col-form-label">Sample Collection Date & Time</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="datetime-local" value="2021-06-18T12:30:00" id="datetime-input" />
+                  <input class="form-control" type="datetime-local" name="collection_datetime" id="datetime-input" required data-rules="date">
+                  <div class="form-text">When was the sample collected?</div>
                 </div>
               </div>
             
               <div class="mb-4 row">
                 <label for="patient-id-input" class="col-md-2 col-form-label">Patient ID</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="text" placeholder="eg ... MN200-01" id="patient-id-input" />
+                  <input class="form-control" type="text" name="patient_id" placeholder="e.g., MN200001" id="patient-id-input" required data-rules="patientId">
+                  <div class="form-text">Enter patient ID in format: 2 letters + 6 digits</div>
                 </div>
               </div>
             
               <div class="mb-4 row">
-                <label for="age-input" class="col-md-2 col-form-label">Age</label>
+                <label for="age-input" class="col-md-2 col-form-label">Patient Age</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="number" placeholder="18" id="age-input" />
+                  <input class="form-control" type="number" name="age" placeholder="18" min="0" max="120" id="age-input" required data-rules="positiveNumber">
+                  <div class="form-text">Patient age in years</div>
                 </div>
               </div>
             
               <div class="mb-4 row">
                 <label for="sex-input" class="col-md-2 col-form-label">Sex</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="sex-input">
+                  <select class="form-control" name="sex" id="sex-input" required>
                     <option value="">Select Sex</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -632,13 +411,13 @@
               <div class="mb-4 row">
                 <label for="ward-input" class="col-md-2 col-form-label">Ward</label>
                 <div class="col-md-10">
-                  <input class="form-control" type="text" placeholder="Ward" id="ward-input" />
+                  <input class="form-control" type="text" name="ward" placeholder="Ward" id="ward-input" />
                 </div>
               </div>
               <div class="mb-4 row">
                 <label for="condition-input" class="col-md-2 col-form-label">Condition</label>
                 <div class="col-md-10">
-                  <select class="form-control" id="condition-input">
+                  <select class="form-control" name="condition" id="condition-input" required>
                     <option value="">Select Infection Type</option>
                     <option value="Respiratory Infections">Respiratory Infections</option>
                     <option value="Urinary Tract Infections">Urinary Tract Infections</option>
@@ -656,64 +435,21 @@
               </div>
             
               <div class="mb-4 row">
-                <label for="condition-input" class="col-md-2 col-form-label">Clinical Data</label>
+                <label for="clinical-data" class="col-md-2 col-form-label">Clinical Data</label>
                 <div class="col-md-10">
-                  <textarea class="form-control" id="clinical-data" placeholder="Enter Any Clinical History Available" rows="3"></textarea>
+                  <textarea class="form-control" name="clinical_history" id="clinical-data" placeholder="Enter Any Clinical History Available" rows="3"></textarea>
                 </div>
               </div>
             
-              <button type="submit" class="btn btn-primary">Send</button>
+              <button type="submit" class="btn btn-primary">
+                <i class="bx bx-check me-2"></i>Submit Sample Collection
+              </button>
             
             </form>
             
-            <script>
-              document.getElementById('clinicForm').addEventListener('submit', async function(event) {
-                event.preventDefault();
+            <!-- Form submission is now handled by the FormHandler module automatically -->
             
-                // Gather form data
-                const datetime = document.getElementById('datetime-input').value;
-                const patientId = document.getElementById('patient-id-input').value;
-                const age = document.getElementById('age-input').value;
-                const sex = document.getElementById('sex-input').value;
-                const ward = document.getElementById('ward-input').value;
-                const condition = document.getElementById('condition-input').value;
-            
-                // Create the data object
-                const data = {
-                  data: {
-                    datetime: datetime,
-                    patientid: patientId,
-                    age: parseInt(age, 10),
-                    sex: sex,
-                    ward: ward,
-                    condition: condition
-                  }
-                };
-            
-                // Send data to the API
-                try {
-                  const response = await fetch('http://198.177.123.228:1337/api/clinicreceives', {
-                    method: 'POST',
-                    headers: {
-                      'Content-Type': 'application/json',
-                      'Authorization': 'Bearer 83fdd6ab07e87e390e9086df8edf28f77509b2a3fcc316bf471eb2b908e4e1eabc4a0ab9fdde97a7aff1c4afabb1c1697665185a0a00977659c9227010fcc95d18b5df85e7675c0f5b15c5b890542132fd6fb2c86ef2d0fb4b28e605d8761cdde07c3d16ea3b4072071ebabb6f76f0e10bf9864f2b53b082d776421348826677'
-                    },
-                    body: JSON.stringify(data)
-                  });
-            
-                  if (response.ok) {
-                    alert('Data submitted successfully');
-                  } else {
-                    alert('Failed to submit data');
-                  }
-                } catch (error) {
-                  console.error('Error:', error);
-                  alert('An error occurred while submitting data');
-                }
-              });
-            </script>
-            
->>>>>>> develop
+
              </div>
 
            </div>
@@ -726,13 +462,13 @@
                 <div class="card-body">
                       <form>
                       <div class="mb-4">
-                        <label for="formFile" class="form-label">Upload Sample</label>
-                        <input class="form-control" type="file" id="formFile" />
+                        <label for="clinic-upload-file" class="form-label">Upload Sample</label>
+                        <input class="form-control" type="file" id="clinic-upload-file" />
                       </div>
 
                       <div class="mb-4">
-                        <label for="formFile" class="form-label">Upload Susceptability Profile</label>
-                        <input class="form-control" type="file" id="formFile" />
+                        <label for="clinic-upload-file" class="form-label">Upload Susceptability Profile</label>
+                        <input class="form-control" type="file" id="clinic-upload-file" />
                       </div>
 
                       <button type="submit" class="btn btn-primary">Submit</button>
@@ -755,16 +491,9 @@
                 <div
                   class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
                   <div class="text-body">
-                    ©
-                    <script>
-                      document.write(new Date().getFullYear());
-                    </script>
-                     MediTrack |
-<<<<<<< HEAD
-                    <a href="https://themeselection.com" target="_blank" class="footer-link">Infinity Lines Of Code</a>
-=======
-                    <a href="https://infinitylinesofcode.com" target="_blank" class="footer-link">Infinity Lines Of Code</a>
->>>>>>> develop
+                    © <span id="current-year">2024</span> MediTrack |
+<a href="https://infinitylinesofcode.com" target="_blank" class="footer-link">Infinity Lines Of Code</a>
+
                   </div>
                   
                 </div>
@@ -807,5 +536,14 @@
 
     <!-- Place this tag before closing body tag for github widget button. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </body>
+  <!-- 
+    All form handling is now managed by the modular MediTrack system.
+    The form is configured with data attributes:
+    - data-handler="meditrack" enables the FormHandler module
+    - data-form-type="clinicForm" specifies the form type for proper API routing
+    - data-auto-save="true" enables automatic draft saving
+    - Authentication, validation, loading states, and error handling are handled automatically
+  -->
+</body>
 </html>
+

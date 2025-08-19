@@ -105,246 +105,6 @@
 
   // Total Revenue Report Chart - Bar Chart
   // --------------------------------------------------------------------
-<<<<<<< HEAD
-  const totalRevenueChartEl = document.querySelector('#totalRevenueChart'),
-    totalRevenueChartOptions = {
-      series: [
-        {
-          name: new Date().getFullYear() - 1,
-
-          data: [18, 7, 15, 29, 18, 12, 9]
-        },
-        {
-          name: new Date().getFullYear() - 2,
-          data: [-13, -18, -9, -14, -5, -17, -15]
-        }
-      ],
-      chart: {
-        height: 317,
-        stacked: true,
-        type: 'bar',
-        toolbar: { show: false }
-      },
-      plotOptions: {
-        bar: {
-          horizontal: false,
-          columnWidth: '30%',
-          borderRadius: 8,
-          startingShape: 'rounded',
-          endingShape: 'rounded'
-        }
-      },
-      colors: [config.colors.primary, config.colors.info],
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: 'smooth',
-        width: 6,
-        lineCap: 'round',
-        colors: [cardColor]
-      },
-      legend: {
-        show: true,
-        horizontalAlign: 'left',
-        position: 'top',
-        markers: {
-          height: 8,
-          width: 8,
-          radius: 12,
-          offsetX: -5
-        },
-        fontSize: '13px',
-        fontFamily: 'Public Sans',
-        fontWeight: 400,
-        labels: {
-          colors: legendColor,
-          useSeriesColors: false
-        },
-        itemMargin: {
-          horizontal: 10
-        }
-      },
-      grid: {
-        strokeDashArray: 7,
-        borderColor: borderColor,
-        padding: {
-          top: 0,
-          bottom: -8,
-          left: 20,
-          right: 20
-        }
-      },
-      fill: {
-        opacity: [1, 1]
-      },
-      xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
-        labels: {
-          style: {
-            fontSize: '13px',
-            fontFamily: 'Public Sans',
-            colors: labelColor
-          }
-        },
-        axisTicks: {
-          show: false
-        },
-        axisBorder: {
-          show: false
-        }
-      },
-      yaxis: {
-        labels: {
-          style: {
-            fontSize: '13px',
-            fontFamily: 'Public Sans',
-            colors: labelColor
-          }
-        }
-      },
-      responsive: [
-        {
-          breakpoint: 1700,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 10,
-                columnWidth: '35%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 1440,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 12,
-                columnWidth: '43%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 1300,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 11,
-                columnWidth: '45%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 1200,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 11,
-                columnWidth: '37%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 1040,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 12,
-                columnWidth: '45%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 991,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 12,
-                columnWidth: '33%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 768,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 11,
-                columnWidth: '28%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 640,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 11,
-                columnWidth: '30%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 576,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 10,
-                columnWidth: '38%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 440,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 10,
-                columnWidth: '50%'
-              }
-            }
-          }
-        },
-        {
-          breakpoint: 380,
-          options: {
-            plotOptions: {
-              bar: {
-                borderRadius: 9,
-                columnWidth: '60%'
-              }
-            }
-          }
-        }
-      ],
-      states: {
-        hover: {
-          filter: {
-            type: 'none'
-          }
-        },
-        active: {
-          filter: {
-            type: 'none'
-          }
-        }
-      }
-    };
-  if (typeof totalRevenueChartEl !== undefined && totalRevenueChartEl !== null) {
-    const totalRevenueChart = new ApexCharts(totalRevenueChartEl, totalRevenueChartOptions);
-    totalRevenueChart.render();
-  }
-
-=======
   document.addEventListener("DOMContentLoaded", async function () {
     const totalRevenueChartEl = document.querySelector('#totalRevenueChart');
 
@@ -364,24 +124,14 @@
 
     // Fetch data from clinic receives API
     async function fetchClinicReceives() {
-      const response = await fetch('http://198.177.123.228:1337/api/clinicreceives', {
-        method: 'GET',
-        headers: {
-          'Authorization': 'Bearer 83fdd6ab07e87e390e9086df8edf28f77509b2a3fcc316bf471eb2b908e4e1eabc4a0ab9fdde97a7aff1c4afabb1c1697665185a0a00977659c9227010fcc95d18b5df85e7675c0f5b15c5b890542132fd6fb2c86ef2d0fb4b28e605d8761cdde07c3d16ea3b4072071ebabb6f76f0e10bf9864f2b53b082d776421348826677',
-        }
-      });
+      const response = await ApiHelper.get(MediTrackConfig.endpoints.clinicReceives);
       const data = await response.json();
       return groupByMonth(data.data);
     }
 
     // Fetch data from clinic processings API
     async function fetchClinicProcessings() {
-      const response = await fetch('http://198.177.123.228:1337/api/clinicprocessings', {
-        method: 'GET',
-        headers: {
-          'Authorization': 'Bearer 83fdd6ab07e87e390e9086df8edf28f77509b2a3fcc316bf471eb2b908e4e1eabc4a0ab9fdde97a7aff1c4afabb1c1697665185a0a00977659c9227010fcc95d18b5df85e7675c0f5b15c5b890542132fd6fb2c86ef2d0fb4b28e605d8761cdde07c3d16ea3b4072071ebabb6f76f0e10bf9864f2b53b082d776421348826677',
-        }
-      });
+      const response = await ApiHelper.get(MediTrackConfig.endpoints.clinicProcessings);
       const data = await response.json();
       return groupByMonth(data.data);
     }
@@ -540,7 +290,6 @@
       console.error('Error fetching data:', error);
     }
   });
->>>>>>> develop
   // Growth Chart - Radial Bar Chart
   // --------------------------------------------------------------------
   const growthChartEl = document.querySelector('#growthChart'),
