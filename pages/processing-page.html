@@ -624,7 +624,7 @@
                 // Function to populate all "Suggestable Pharmacy Drug" dropdowns
                 function populatePharmacyDrugs() {
                     // Fetch data from the Strapi API using secure configuration
-                    ApiHelper.get(MediTrackConfig.endpoints.pharmacyRecords)
+                    ApiHelper.get('pharmacyRecords')
                     .then(response => {
                         if (!response.ok) {
                             throw new Error(`HTTP error! status: ${response.status}`);
@@ -728,7 +728,7 @@
                   };
           
                   // Send a POST request to Strapi using secure configuration
-                  ApiHelper.post(MediTrackConfig.endpoints.clinicProcessings, formData)
+                  ApiHelper.post('clinicProcessings', formData)
                       .then(response => {
                           if (!response.ok) {
                               throw new Error(`HTTP error! status: ${response.status}`);

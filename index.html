@@ -17,6 +17,12 @@
   <link rel="stylesheet" href="assets/vendor/css/theme-default.css" />
   <link rel="stylesheet" href="assets/css/demo.css" />
   
+  <!-- Supabase Client -->
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    window.createClient = createClient;
+  </script>
+  
   <!-- Vendors CSS -->
   <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
   <link rel="stylesheet" href="assets/vendor/css/pages/page-auth.css" />
@@ -102,7 +108,7 @@
             <!-- JavaScript for login logic -->
            <!-- JavaScript for login logic -->
            <script>
-            document.getElementById('loginForm').addEventListener('submit', function(event) {
+            document.getElementById('loginForm').addEventListener('submit', async function(event) {
               event.preventDefault();
             
               const email = document.getElementById('email').value;
@@ -114,69 +120,59 @@
               loader.style.display = 'block'; // Show loader
               errorMessage.textContent = ''; // Clear previous error message
             
-              // API request to login using secure configuration
-              ApiHelper.post(MediTrackConfig.endpoints.auth.login, {
-                identifier: email, // Can be email or username
-                password: password
-              })
-              .then(response => response.json())
-              .then(data => {
-                loader.style.display = 'none'; // Hide loader
-            
-                if (data.jwt) {
-                  // Store token securely
-                  TokenManager.setToken(data.jwt);
-                  
-                  // Successful login, get user profile to check user type
-                  ApiHelper.get('users/me')
-                  .then(response => response.json())
-                  .then(user => {
-                    // Check if the selected userType matches the user's actual type
-                    if (user.department === userType) {
-                      // Redirect based on user type
-                      let redirectUrl = '';
-                      switch (userType) {
-                        case 'clinician':
-                          redirectUrl = './pages/home.html';
-                          break;
-                        case 'laboratory_scientist':
-                          redirectUrl = './pages/home.html';
-                          break;
-                        case 'pharmacy':
-                          redirectUrl = './pages/home.html';
-                          break;
-                        case '_':
-                          redirectUrl = './pages/home.html';
-                          break;
-                        default:
-                          errorMessage.textContent = 'Please select a valid user type.';
-                          return;
-                      }
-            
-                      // Redirect to the appropriate dashboard or home page
-                      window.location.href = redirectUrl;
-                    } else {
-                      errorMessage.textContent = 'The selected user type does not match your account. Please try again.';
-                    }
-                  })
-                  .catch(error => {
-                    console.error('Error fetching user profile:', error);
-                    errorMessage.textContent = 'There was an issue verifying your account. Please try again later.';
-                  });
-                } else {
-                  // Handle invalid login
-                  if (data.message && data.message[0] && data.message[0].messages && data.message[0].messages[0].message) {
-                    errorMessage.textContent = 'Invalid email or password. Please try again.';
-                  } else {
-                    errorMessage.textContent = 'Login failed. Please check your credentials and try again.';
-                  }
+              try {
+                // Use new Supabase authentication
+                const { user, session, error } = await ApiHelper.auth.login(email, password);
+                
+                if (error) {
+                  throw error;
                 }
-              })
-              .catch(error => {
+                
+                loader.style.display = 'none'; // Hide loader
+                
+                if (user && session) {
+                  // Get user profile to check user type
+                  const currentUser = await TokenManager.getCurrentUser();
+                  
+                  // Get user profile from user_profiles table
+                  const profileData = await ApiHelper.get('userProfiles', {
+                    filters: [{ column: 'id', operator: 'eq', value: currentUser.id }]
+                  });
+                  
+                  const userProfile = profileData.data[0];
+                  
+                  // Check if the selected userType matches the user's actual type
+                  if (!userProfile || userProfile.attributes.role === userType || userType === '_') {
+                    // Redirect based on user type
+                    let redirectUrl = '';
+                    switch (userType) {
+                      case 'clinician':
+                        redirectUrl = './pages/home.html';
+                        break;
+                      case 'laboratory_scientist':
+                        redirectUrl = './pages/home.html';
+                        break;
+                      case 'pharmacy':
+                        redirectUrl = './pages/home.html';
+                        break;
+                      default:
+                        redirectUrl = './pages/home.html';
+                        break;
+                    }
+            
+                    // Redirect to the appropriate dashboard or home page
+                    window.location.href = redirectUrl;
+                  } else {
+                    errorMessage.textContent = 'The selected user type does not match your account. Please try again.';
+                  }
+                } else {
+                  errorMessage.textContent = 'Login failed. Please check your credentials and try again.';
+                }
+              } catch (error) {
                 console.error('Error:', error);
                 errorMessage.textContent = 'Unable to log in at this time. Please try again later.';
                 loader.style.display = 'none'; // Hide loader
-              });
+              }
             });
             </script>
             

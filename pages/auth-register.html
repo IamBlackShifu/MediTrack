@@ -117,7 +117,7 @@
 <script src="../assets/vendor/js/menu.js"></script>
 
 <script>
-    document.getElementById('formAuthentication').addEventListener('submit', function (e) {
+    document.getElementById('formAuthentication').addEventListener('submit', async function (e) {
         e.preventDefault();
 
         const username = document.getElementById('username').value;
@@ -130,26 +130,22 @@
             return;
         }
 
-        // Use secure API configuration for registration
-        ApiHelper.post(MediTrackConfig.endpoints.auth.register, {
-            username: username,
-            email: email,
-            password: password
-        })
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log('User created successfully:', data);
-            if (data.jwt) {
-                TokenManager.setToken(data.jwt);
+        try {
+            // Use new Supabase registration
+            const { user, session, error } = await ApiHelper.auth.register(email, password, {
+                username: username
+            });
+            
+            if (error) {
+                throw error;
             }
+            
+            console.log('User created successfully:', user);
             window.location.href = 'home.html'; // Redirect to home page after successful registration
-        })
-        .catch(function (error) {
-            console.error('An error occurred:', error.response);
-            alert('Registration failed: ' + error.response.data.error.message);
-        });
+        } catch (error) {
+            console.error('Registration error:', error);
+            alert('Registration failed: ' + (error.message || 'Unknown error'));
+        }
     });
 
     // Toggle password visibility

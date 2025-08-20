@@ -45,6 +45,10 @@
     <script src="../assets/vendor/js/helpers.js"></script>
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    
+    <!-- Supabase Client Library -->
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+    
     <script src="../assets/js/config.js"></script>
   </head>
 
@@ -385,19 +389,11 @@
                     
                         try {
                           // Fetch the data from the API
-                          const response = await fetch('https://pathoguide.co.zw:1338/api/clinicreceives', {
-                            method: 'GET',
-                            headers: {
-                              ...TokenManager.getAuthHeader(),
-                            }
-                          });
+                          const { data: samples, error } = await ApiHelper.clinic.getReceives();
                           
-                          if (!response.ok) {
-                            throw new Error('Network response was not ok');
+                          if (error) {
+                            throw new Error(`Failed to fetch clinic receives: ${error.message}`);
                           }
-                    
-                          const data = await response.json();
-                          const samples = data.data;
                     
                           // Get current date in YYYY-MM-DD format
                           const today = new Date().toISOString().split('T')[0];
@@ -407,7 +403,7 @@
                           let samplesToday = 0;
                     
                           samples.forEach(sample => {
-                            const createdDate = new Date(sample.attributes.createdAt).toISOString().split('T')[0];
+                            const createdDate = new Date(sample.created_at).toISOString().split('T')[0];
                     
                             totalSamples++;
                             if (createdDate === today) {
@@ -454,19 +450,11 @@
                 
                     try {
                       // Fetch the data from the API
-                      const response = await fetch('https://pathoguide.co.zw:1338/api/clinicprocessings', {
-                        method: 'GET',
-                        headers: {
-                          ...TokenManager.getAuthHeader(),
-                        }
-                      });
+                      const { data: samplesTested, error } = await ApiHelper.clinic.getProcessings();
                       
-                      if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                      if (error) {
+                        throw new Error(`Failed to fetch clinic processings: ${error.message}`);
                       }
-                
-                      const data = await response.json();
-                      const samplesTested = data.data;
                 
                       // Get current date in YYYY-MM-DD format
                       const today = new Date().toISOString().split('T')[0];
@@ -483,7 +471,7 @@
                 
                       // Loop through the samples and calculate totals
                       samplesTested.forEach(sample => {
-                        const createdDate = new Date(sample.attributes.createdAt).toISOString().split('T')[0];
+                        const createdDate = new Date(sample.created_at).toISOString().split('T')[0];
                 
                         totalTestedSamples++;
                         if (createdDate === today) {
@@ -572,19 +560,11 @@
                     
                         try {
                           // Fetch the data from the API
-                          const response = await fetch('https://pathoguide.co.zw:1338/api/pharmacyrecords', {
-                            method: 'GET',
-                            headers: {
-                              ...TokenManager.getAuthHeader(),
-                            }
-                          });
+                          const { data: pharmacyRecords, error } = await ApiHelper.pharmacy.getRecords();
                     
-                          if (!response.ok) {
-                            throw new Error('Network response was not ok');
+                          if (error) {
+                            throw new Error(`Failed to fetch pharmacy records: ${error.message}`);
                           }
-                    
-                          const data = await response.json();
-                          const pharmacyRecords = data.data;
                     
                           // Initialize counters
                           let totalMedicines = 0;
@@ -593,7 +573,7 @@
                           // Loop through the pharmacy records and calculate totals
                           pharmacyRecords.forEach(record => {
                             totalMedicines++;
-                            if (!record.attributes.availability) {
+                            if (!record.availability) {
                               outOfStockCount++;
                             }
                           });

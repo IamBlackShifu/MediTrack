@@ -19,7 +19,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" hr                          const data = await ApiHelper.get('pharmacyRecords');assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -427,14 +427,8 @@
                         const samplesTodayElement = document.getElementById("samplesToday");
                     
                         try {
-                          // Fetch the data from the API using secure configuration
-                          const response = await ApiHelper.get(MediTrackConfig.endpoints.clinicReceives);
-                          
-                          if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                          }
-                    
-                          const data = await response.json();
+                          // Fetch the data using new Supabase API
+                          const data = await ApiHelper.get('clinicReceives');
                           const samples = data.data;
                     
                           // Get current date in YYYY-MM-DD format
@@ -445,7 +439,7 @@
                           let samplesToday = 0;
                     
                           samples.forEach(sample => {
-                            const createdDate = new Date(sample.attributes.createdAt).toISOString().split('T')[0];
+                            const createdDate = new Date(sample.attributes.created_at).toISOString().split('T')[0];
                     
                             totalSamples++;
                             if (createdDate === today) {
@@ -492,14 +486,8 @@
                     const percentageChangeElement = document.getElementById("percentageChange");
                 
                     try {
-                      // Fetch the data from the API using secure configuration
-                      const response = await ApiHelper.get(MediTrackConfig.endpoints.clinicProcessings);
-                      
-                      if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                      }
-                
-                      const data = await response.json();
+                      // Fetch the data using new Supabase API
+                      const data = await ApiHelper.get('clinicProcessings');
                       const samplesTested = data.data;
                 
                       // Get current date in YYYY-MM-DD format

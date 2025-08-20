@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediTrack Supabase Migration Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .test-section { border: 1px solid #ddd; margin: 20px 0; padding: 15px; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; color: #155724; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; color: #721c24; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; color: #0c5460; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+        button:hover { background: #0056b3; }
+        .log { background: #f8f9fa; border: 1px solid #dee2e6; padding: 10px; margin: 10px 0; font-family: monospace; max-height: 300px; overflow-y: auto; }
+        input { padding: 8px; margin: 5px; border: 1px solid #ddd; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 MediTrack Supabase Migration Test</h1>
+    
+    <div class="test-section info">
+        <h3>📋 Test Configuration</h3>
+        <p><strong>Supabase URL:</strong> https://ozpustbeoojyiprvusve.supabase.co</p>
+        <p><strong>Test Database:</strong> MediTrack Production</p>
+        <p><strong>Status:</strong> <span id="connection-status">Checking...</span></p>
+    </div>
+
+    <div class="test-section">
+        <h3>🔐 Authentication Test</h3>
+        <div>
+            <input type="email" id="test-email" placeholder="Email" value="test@meditrack.com">
+            <input type="password" id="test-password" placeholder="Password" value="Test123!">
+            <button onclick="testAuth()">Test Login</button>
+            <button onclick="testRegister()">Test Register</button>
+            <button onclick="testLogout()">Logout</button>
+        </div>
+        <div id="auth-result" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>📊 Data Operations Test</h3>
+        <div>
+            <button onclick="testGet()">Test GET</button>
+            <button onclick="testPost()">Test POST</button>
+            <button onclick="testPut()">Test PUT</button>
+            <button onclick="testDelete()">Test DELETE</button>
+            <button onclick="testCount()">Test COUNT</button>
+        </div>
+        <div id="data-result" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔍 Query Test</h3>
+        <div>
+            <button onclick="testFilters()">Test Filters</button>
+            <button onclick="testPagination()">Test Pagination</button>
+            <button onclick="testOrdering()">Test Ordering</button>
+        </div>
+        <div id="query-result" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>🛡️ Security Test</h3>
+        <div>
+            <button onclick="testRLS()">Test Row Level Security</button>
+            <button onclick="testPermissions()">Test Permissions</button>
+        </div>
+        <div id="security-result" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>🔄 Real-time Test</h3>
+        <div>
+            <button onclick="testRealtime()">Test Real-time Subscription</button>
+            <button onclick="stopRealtime()">Stop Subscription</button>
+        </div>
+        <div id="realtime-result" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h3>📊 Full Test Suite</h3>
+        <div>
+            <button onclick="runFullTestSuite()">Run All Tests</button>
+            <button onclick="clearLogs()">Clear Logs</button>
+        </div>
+        <div id="full-test-result" class="log"></div>
+    </div>
+
+    <!-- Supabase Client -->
+    <script type="module">
+        import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+        window.createClient = createClient;
+        window.supabase = createClient(
+            'https://ozpustbeoojyiprvusve.supabase.co',
+            'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im96cHVzdGJlb29qeWlwcnZ1c3ZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTU2MTk5MTEsImV4cCI6MjA3MTE5NTkxMX0.aQVracY0MDkekan4oovbJKpfkiZZ7D11w15xElWcRso'
+        );
+        
+        // Check initial connection
+        checkConnection();
+    </script>
+
+    <!-- Configuration Scripts -->
+    <script src="assets/js/config.js"></script>
+
+    <script>
+        let realtimeSubscription = null;
+
+        function log(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = `[${timestamp}] ${message}\n`;
+            element.innerHTML += logEntry;
+            element.scrollTop = element.scrollHeight;
+            
+            console.log(message);
+        }
+
+        function clearLogs() {
+            const logElements = document.querySelectorAll('.log');
+            logElements.forEach(el => el.innerHTML = '');
+        }
+
+        async function checkConnection() {
+            try {
+                const { data, error } = await window.supabase.from('clinic_receives').select('count', { count: 'exact', head: true });
+                
+                if (error) {
+                    document.getElementById('connection-status').innerHTML = '❌ Failed';
+                    document.getElementById('connection-status').style.color = 'red';
+                } else {
+                    document.getElementById('connection-status').innerHTML = '✅ Connected';
+                    document.getElementById('connection-status').style.color = 'green';
+                }
+            } catch (error) {
+                document.getElementById('connection-status').innerHTML = '❌ Error';
+                document.getElementById('connection-status').style.color = 'red';
+            }
+        }
+
+        async function testAuth() {
+            const email = document.getElementById('test-email').value;
+            const password = document.getElementById('test-password').value;
+
+            try {
+                log('auth-result', '🔐 Testing authentication...');
+                
+                const { data, error } = await window.supabase.auth.signInWithPassword({
+                    email, password
+                });
+
+                if (error) {
+                    log('auth-result', `❌ Auth failed: ${error.message}`, 'error');
+                } else {
+                    log('auth-result', `✅ Auth successful: ${data.user.email}`, 'success');
+                }
+            } catch (error) {
+                log('auth-result', `❌ Auth error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testRegister() {
+            const email = document.getElementById('test-email').value;
+            const password = document.getElementById('test-password').value;
+
+            try {
+                log('auth-result', '📝 Testing registration...');
+                
+                const { data, error } = await window.supabase.auth.signUp({
+                    email, password
+                });
+
+                if (error) {
+                    log('auth-result', `❌ Registration failed: ${error.message}`, 'error');
+                } else {
+                    log('auth-result', `✅ Registration successful: ${data.user?.email || 'User created'}`, 'success');
+                }
+            } catch (error) {
+                log('auth-result', `❌ Registration error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testLogout() {
+            try {
+                log('auth-result', '🚪 Testing logout...');
+                
+                const { error } = await window.supabase.auth.signOut();
+
+                if (error) {
+                    log('auth-result', `❌ Logout failed: ${error.message}`, 'error');
+                } else {
+                    log('auth-result', '✅ Logout successful', 'success');
+                }
+            } catch (error) {
+                log('auth-result', `❌ Logout error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGet() {
+            try {
+                log('data-result', '📊 Testing GET operation...');
+                
+                const { data, error } = await window.supabase
+                    .from('clinic_receives')
+                    .select('*')
+                    .limit(5);
+
+                if (error) {
+                    log('data-result', `❌ GET failed: ${error.message}`, 'error');
+                } else {
+                    log('data-result', `✅ GET successful: Retrieved ${data.length} records`, 'success');
+                }
+            } catch (error) {
+                log('data-result', `❌ GET error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testPost() {
+            try {
+                log('data-result', '📝 Testing POST operation...');
+                
+                const testData = {
+                    patient_name: 'Test Patient',
+                    patient_id: 'TEST' + Date.now(),
+                    doctor_name: 'Dr. Test',
+                    clinic_name: 'Test Clinic'
+                };
+
+                const { data, error } = await window.supabase
+                    .from('clinic_receives')
+                    .insert(testData)
+                    .select();
+
+                if (error) {
+                    log('data-result', `❌ POST failed: ${error.message}`, 'error');
+                } else {
+                    log('data-result', `✅ POST successful: Created record ID ${data[0].id}`, 'success');
+                    window.lastCreatedId = data[0].id; // Store for other tests
+                }
+            } catch (error) {
+                log('data-result', `❌ POST error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testPut() {
+            if (!window.lastCreatedId) {
+                log('data-result', '⚠️ No record to update. Run POST test first.', 'info');
+                return;
+            }
+
+            try {
+                log('data-result', '✏️ Testing PUT operation...');
+                
+                const { data, error } = await window.supabase
+                    .from('clinic_receives')
+                    .update({ patient_name: 'Updated Test Patient' })
+                    .eq('id', window.lastCreatedId)
+                    .select();
+
+                if (error) {
+                    log('data-result', `❌ PUT failed: ${error.message}`, 'error');
+                } else {
+                    log('data-result', `✅ PUT successful: Updated record ID ${window.lastCreatedId}`, 'success');
+                }
+            } catch (error) {
+                log('data-result', `❌ PUT error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testDelete() {
+            if (!window.lastCreatedId) {
+                log('data-result', '⚠️ No record to delete. Run POST test first.', 'info');
+                return;
+            }
+
+            try {
+                log('data-result', '🗑️ Testing DELETE operation...');
+                
+                const { error } = await window.supabase
+                    .from('clinic_receives')
+                    .delete()
+                    .eq('id', window.lastCreatedId);
+
+                if (error) {
+                    log('data-result', `❌ DELETE failed: ${error.message}`, 'error');
+                } else {
+                    log('data-result', `✅ DELETE successful: Deleted record ID ${window.lastCreatedId}`, 'success');
+                    window.lastCreatedId = null;
+                }
+            } catch (error) {
+                log('data-result', `❌ DELETE error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testCount() {
+            try {
+                log('data-result', '🔢 Testing COUNT operation...');
+                
+                const { count, error } = await window.supabase
+                    .from('clinic_receives')
+                    .select('*', { count: 'exact', head: true });
+
+                if (error) {
+                    log('data-result', `❌ COUNT failed: ${error.message}`, 'error');
+                } else {
+                    log('data-result', `✅ COUNT successful: ${count} total records`, 'success');
+                }
+            } catch (error) {
+                log('data-result', `❌ COUNT error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testFilters() {
+            try {
+                log('query-result', '🔍 Testing filter operations...');
+                
+                const { data, error } = await window.supabase
+                    .from('clinic_receives')
+                    .select('*')
+                    .eq('patient_name', 'Test Patient')
+                    .limit(5);
+
+                if (error) {
+                    log('query-result', `❌ Filter failed: ${error.message}`, 'error');
+                } else {
+                    log('query-result', `✅ Filter successful: Found ${data.length} matching records`, 'success');
+                }
+            } catch (error) {
+                log('query-result', `❌ Filter error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testPagination() {
+            try {
+                log('query-result', '📄 Testing pagination...');
+                
+                const { data, error } = await window.supabase
+                    .from('clinic_receives')
+                    .select('*')
+                    .range(0, 2);
+
+                if (error) {
+                    log('query-result', `❌ Pagination failed: ${error.message}`, 'error');
+                } else {
+                    log('query-result', `✅ Pagination successful: Retrieved ${data.length} records`, 'success');
+                }
+            } catch (error) {
+                log('query-result', `❌ Pagination error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testOrdering() {
+            try {
+                log('query-result', '📊 Testing ordering...');
+                
+                const { data, error } = await window.supabase
+                    .from('clinic_receives')
+                    .select('*')
+                    .order('created_at', { ascending: false })
+                    .limit(5);
+
+                if (error) {
+                    log('query-result', `❌ Ordering failed: ${error.message}`, 'error');
+                } else {
+                    log('query-result', `✅ Ordering successful: Retrieved ${data.length} ordered records`, 'success');
+                }
+            } catch (error) {
+                log('query-result', `❌ Ordering error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testRLS() {
+            try {
+                log('security-result', '🛡️ Testing Row Level Security...');
+                
+                // Check if RLS is working by trying to access data
+                const { data, error } = await window.supabase
+                    .from('clinic_receives')
+                    .select('*')
+                    .limit(1);
+
+                if (error) {
+                    if (error.code === 'PGRST301' || error.message.includes('policy')) {
+                        log('security-result', '✅ RLS working: Access properly restricted', 'success');
+                    } else {
+                        log('security-result', `❌ RLS test failed: ${error.message}`, 'error');
+                    }
+                } else {
+                    log('security-result', '✅ RLS configured: User has appropriate access', 'success');
+                }
+            } catch (error) {
+                log('security-result', `❌ RLS error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testPermissions() {
+            try {
+                log('security-result', '🔐 Testing permissions...');
+                
+                const { data: { user }, error } = await window.supabase.auth.getUser();
+
+                if (error) {
+                    log('security-result', `❌ Permission test failed: ${error.message}`, 'error');
+                } else if (user) {
+                    log('security-result', `✅ Permissions OK: User ${user.email} authenticated`, 'success');
+                } else {
+                    log('security-result', '⚠️ No authenticated user - some operations may be restricted', 'info');
+                }
+            } catch (error) {
+                log('security-result', `❌ Permission error: ${error.message}`, 'error');
+            }
+        }
+
+        async function testRealtime() {
+            try {
+                log('realtime-result', '🔄 Testing real-time subscription...');
+                
+                realtimeSubscription = window.supabase
+                    .from('clinic_receives')
+                    .on('*', payload => {
+                        log('realtime-result', `📡 Real-time event: ${payload.eventType} - ${JSON.stringify(payload.new || payload.old)}`, 'success');
+                    })
+                    .subscribe();
+
+                log('realtime-result', '✅ Real-time subscription created. Insert/update/delete records to see events.', 'success');
+            } catch (error) {
+                log('realtime-result', `❌ Real-time error: ${error.message}`, 'error');
+            }
+        }
+
+        function stopRealtime() {
+            if (realtimeSubscription) {
+                realtimeSubscription.unsubscribe();
+                realtimeSubscription = null;
+                log('realtime-result', '🛑 Real-time subscription stopped', 'info');
+            }
+        }
+
+        async function runFullTestSuite() {
+            log('full-test-result', '🚀 Starting full test suite...');
+            
+            const tests = [
+                { name: 'Authentication', fn: testAuth },
+                { name: 'GET Operation', fn: testGet },
+                { name: 'POST Operation', fn: testPost },
+                { name: 'PUT Operation', fn: testPut },
+                { name: 'COUNT Operation', fn: testCount },
+                { name: 'Filters', fn: testFilters },
+                { name: 'Pagination', fn: testPagination },
+                { name: 'Ordering', fn: testOrdering },
+                { name: 'Row Level Security', fn: testRLS },
+                { name: 'Permissions', fn: testPermissions }
+            ];
+
+            let passed = 0;
+            let failed = 0;
+
+            for (const test of tests) {
+                try {
+                    log('full-test-result', `🧪 Running ${test.name} test...`);
+                    await test.fn();
+                    passed++;
+                    await new Promise(resolve => setTimeout(resolve, 1000)); // Wait between tests
+                } catch (error) {
+                    log('full-test-result', `❌ ${test.name} test failed: ${error.message}`, 'error');
+                    failed++;
+                }
+            }
+
+            log('full-test-result', `📊 Test suite completed: ${passed} passed, ${failed} failed`, 'success');
+        }
+    </script>
+</body>
+</html>

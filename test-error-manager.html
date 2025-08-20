@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Manager Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .log { background: #f8f9fa; padding: 10px; margin: 10px 0; border-left: 4px solid #007bff; font-family: monospace; }
+        .error { border-left-color: #dc3545; }
+        .success { border-left-color: #28a745; }
+    </style>
+</head>
+<body>
+    <h1>Error Manager Test Page</h1>
+    
+    <div class="test-section">
+        <h2>Configuration Test</h2>
+        <button onclick="checkConfig()">Check Error Manager Config</button>
+        <div id="configResult" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Environment Detection Test</h2>
+        <button onclick="testEnvironment()">Test Environment Detection</button>
+        <div id="envResult" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Error Logging Test</h2>
+        <button onclick="triggerTestError()">Trigger Test Error</button>
+        <div id="errorResult" class="log"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>Server Logging Test</h2>
+        <button onclick="testServerLogging()">Test Server Logging</button>
+        <div id="serverResult" class="log"></div>
+    </div>
+
+    <!-- Load dependencies -->
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/error-manager.js"></script>
+
+    <script>
+        // Initialize Error Manager when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.ErrorManager) {
+                ErrorManager.init();
+                log('configResult', 'Error Manager initialized successfully', 'success');
+            } else {
+                log('configResult', 'Error Manager not loaded!', 'error');
+            }
+        });
+
+        function log(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            const timestamp = new Date().toLocaleTimeString();
+            element.innerHTML = `[${timestamp}] ${message}`;
+            element.className = `log ${type}`;
+        }
+
+        function checkConfig() {
+            if (!window.ErrorManager) {
+                log('configResult', 'Error Manager not available', 'error');
+                return;
+            }
+
+            const config = ErrorManager.config;
+            const configInfo = `
+                Logging Enabled: ${config.logging.enabled}
+                Console Logging: ${config.logging.logToConsole}
+                Server Logging: ${config.logging.logToServer}
+                Log Level: ${config.logging.logLevel}
+                Server Endpoint: ${config.logging.serverEndpoint}
+            `;
+            log('configResult', configInfo, 'success');
+        }
+
+        function testEnvironment() {
+            const hostname = window.location.hostname;
+            const port = window.location.port;
+            const protocol = window.location.protocol;
+            
+            const envInfo = `
+                Hostname: ${hostname}
+                Port: ${port}
+                Protocol: ${protocol}
+                Full URL: ${window.location.href}
+                Environment: ${hostname === 'localhost' || hostname === '127.0.0.1' ? 'Local Development' : 'Production'}
+            `;
+            log('envResult', envInfo, 'success');
+        }
+
+        function triggerTestError() {
+            try {
+                // Trigger a test error
+                throw new Error('This is a test error for verification');
+            } catch (error) {
+                if (window.ErrorManager) {
+                    ErrorManager.handleError(error, { test: true, source: 'manual' })
+                        .then(result => {
+                            log('errorResult', `Error handled successfully: ${JSON.stringify(result)}`, 'success');
+                        })
+                        .catch(err => {
+                            log('errorResult', `Error handling failed: ${err.message}`, 'error');
+                        });
+                } else {
+                    log('errorResult', 'Error Manager not available', 'error');
+                }
+            }
+        }
+
+        function testServerLogging() {
+            if (!window.ErrorManager) {
+                log('serverResult', 'Error Manager not available', 'error');
+                return;
+            }
+
+            // Test server logging directly
+            const testError = {
+                id: 'test-' + Date.now(),
+                message: 'Test server logging',
+                timestamp: new Date().toISOString(),
+                context: { test: true }
+            };
+
+            ErrorManager.sendErrorToServer(testError)
+                .then(() => {
+                    log('serverResult', 'Server logging test completed (check server logs)', 'success');
+                })
+                .catch(err => {
+                    log('serverResult', `Server logging failed: ${err.message}`, 'error');
+                });
+        }
+    </script>
+</body>
+</html>

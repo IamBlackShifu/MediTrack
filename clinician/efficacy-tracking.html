@@ -1,0 +1,1031 @@
+<!doctype html>
+
+<html
+  lang="en"
+  class="light-style layout-menu-fixed layout-compact"
+  dir="ltr"
+  data-theme="theme-default"
+  data-assets-path="../assets/"
+  data-template="vertical-menu-template-free"
+  data-style="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+
+    <title>MediTrack | Medicine Efficacy Tracking</title>
+
+    <meta name="description" content="" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon/Logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet" />
+
+    <link rel="stylesheet" href="../assets/vendor/fonts/boxicons.css" />
+
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="../assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="../assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="../assets/css/demo.css" />
+
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="../assets/vendor/libs/apex-charts/apex-charts.css" />
+
+    <!-- Page CSS -->
+
+    <!-- Helpers -->
+    <script src="../assets/vendor/js/helpers.js"></script>
+    <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+    <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+    <script src="../assets/js/config.js"></script>
+  </head>
+
+  <body>
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a href="home.html" class="app-brand-link d-flex align-items-center">
+              <span class="app-brand-logo demo">
+                <img src="../assets/img/favicon/Logo.png" alt="MediTrack Logo" style="width: 60px; height: 60px;" />
+              </span>
+              <span class="app-brand-text demo menu-text fw-bold ms-2" style="font-size: 1.5rem;">MediTrack</span>
+            </a>
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+              <i class="bx bx-chevron-left bx-sm d-flex align-items-center justify-content-center"></i>
+            </a>
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboards -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-home-smile"></i>
+                <div class="text-truncate" data-i18n="Dashboards">Dashboard</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="home.html" class="menu-link">
+                    <div class="text-truncate" data-i18n="Analytics">Clinical Dashboard</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="analytics.html" class="menu-link">
+                    <div class="text-truncate" data-i18n="Analytics">Analytics</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Treatment System -->
+            <li class="menu-item active open">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-capsule"></i>
+                <div class="text-truncate" data-i18n="Treatment">Treatment System</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="treatment-recommendations.html" class="menu-link">
+                    <div class="text-truncate" data-i18n="Recommendations">Treatment Recommendations</div>
+                  </a>
+                </li>
+                <li class="menu-item active">
+                  <a href="efficacy-tracking.html" class="menu-link">
+                    <div class="text-truncate" data-i18n="Efficacy">Efficacy Tracking</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Pharmacy -->
+            <li class="menu-item">
+              <a href="phamarcy-capturing-page.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-store"></i>
+                <div class="text-truncate" data-i18n="Pharmacy">Pharmacy</div>
+              </a>
+            </li>
+
+            <!-- Account Settings -->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-dock-top"></i>
+                <div class="text-truncate" data-i18n="Account Settings">Account Settings</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="update-profile.html" class="menu-link">
+                    <div class="text-truncate" data-i18n="Basic">Update Profile</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="forgotpassword.html" class="menu-link">
+                    <div class="text-truncate" data-i18n="Basic">Reset Password</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Support -->
+            <li class="menu-item">
+              <a href="support.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-support"></i>
+                <div class="text-truncate" data-i18n="Support">Support</div>
+              </a>
+            </li>
+
+            <!-- Logout -->
+            <li class="menu-item">
+              <a href="../index.html" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-log-out"></i>
+                <div class="text-truncate" data-i18n="Basic">Logout</div>
+              </a>
+            </li>
+          </ul>
+        </aside>
+        <!-- / Menu -->
+
+        <!-- Layout container -->
+        <div class="layout-page">
+          <!-- Navbar -->
+          <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar">
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-4 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-6" href="javascript:void(0)">
+                <i class="bx bx-menu bx-md"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <i class="bx bx-search bx-md"></i>
+                  <input type="text" class="form-control border-0 shadow-none ps-1 ps-sm-2" placeholder="Search..." aria-label="Search..." />
+                </div>
+              </div>
+              <!-- /Search -->
+
+              <ul class="navbar-nav flex-row align-items-center ms-auto">
+                <!-- User -->
+                <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                  <div class="clock" id="clock" style="color: blue;"></div>
+                </li>
+                <!--/ User -->
+              </ul>
+            </div>
+          </nav>
+          <!-- / Navbar -->
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <!-- Page Header -->
+              <div class="d-flex justify-content-between align-items-center mb-6">
+                <div>
+                  <h4 class="fw-bold mb-2">📊 Medicine Efficacy Tracking</h4>
+                  <p class="text-muted mb-0">Monitor and analyze the effectiveness of medicines across different conditions</p>
+                </div>
+                <div class="d-flex gap-2">
+                  <button type="button" class="btn btn-outline-primary" onclick="EfficacyTracking.exportReport()">
+                    <i class="bx bx-export me-2"></i>Export Report
+                  </button>
+                  <button type="button" class="btn btn-primary" onclick="EfficacyTracking.addEfficacyData()">
+                    <i class="bx bx-plus me-2"></i>Add Data
+                  </button>
+                </div>
+              </div>
+
+              <!-- Efficacy Overview Charts -->
+              <div class="row g-6 mb-6">
+                <!-- Top Performing Medicines -->
+                <div class="col-12 col-lg-8">
+                  <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                      <h5 class="mb-0">Top Performing Medicines</h5>
+                      <small class="text-muted">Based on efficacy rates</small>
+                    </div>
+                    <div class="card-body">
+                      <div id="topMedicinesChart"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Efficacy by Condition -->
+                <div class="col-12 col-lg-4">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">Efficacy by Condition</h5>
+                    </div>
+                    <div class="card-body">
+                      <div id="efficacyByConditionChart"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Recovery Time Trends -->
+                <div class="col-12 col-lg-6">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">Recovery Time Trends</h5>
+                    </div>
+                    <div class="card-body">
+                      <div id="recoveryTimeTrendsChart"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Age Group Effectiveness -->
+                <div class="col-12 col-lg-6">
+                  <div class="card">
+                    <div class="card-header">
+                      <h5 class="mb-0">Effectiveness by Age Group</h5>
+                    </div>
+                    <div class="card-body">
+                      <div id="ageGroupEffectivenessChart"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Detailed Efficacy Table -->
+              <div class="card mb-6">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                  <div>
+                    <h5 class="mb-0">Detailed Efficacy Data</h5>
+                    <small class="text-muted">Comprehensive medicine performance metrics</small>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="EfficacyTracking.refreshData()">
+                      <i class="bx bx-refresh me-1"></i>Refresh
+                    </button>
+                    <div class="dropdown">
+                      <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                        Filter
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="EfficacyTracking.filterByEfficacy('high')">High Efficacy (>80%)</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="EfficacyTracking.filterByEfficacy('medium')">Medium Efficacy (50-80%)</a></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="EfficacyTracking.filterByEfficacy('low')">Low Efficacy (<50%)</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="javascript:void(0)" onclick="EfficacyTracking.clearFilters()">Clear Filters</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead class="table-light">
+                        <tr>
+                          <th>Medicine</th>
+                          <th>Condition</th>
+                          <th>Efficacy Rate</th>
+                          <th>Total Cases</th>
+                          <th>Successful Treatments</th>
+                          <th>Avg Recovery Time</th>
+                          <th>Age Groups</th>
+                          <th>Last Updated</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody id="efficacyTableBody">
+                        <!-- Table data will be populated by JavaScript -->
+                        <tr>
+                          <td colspan="9" class="text-center py-5">
+                            <div class="spinner-border text-primary" role="status">
+                              <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <p class="text-muted mt-2 mb-0">Loading efficacy data...</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Treatment Outcome Tracking -->
+              <div class="card">
+                <div class="card-header">
+                  <h5 class="mb-0">
+                    <i class="bx bx-heart me-2"></i>Treatment Outcome Tracking
+                  </h5>
+                </div>
+                <div class="card-body">
+                  <div class="row g-6">
+                    <!-- Success Rate Card -->
+                    <div class="col-md-3">
+                      <div class="card bg-success text-white">
+                        <div class="card-body text-center">
+                          <i class="bx bx-check-circle bx-lg mb-3 d-block"></i>
+                          <h4 class="text-white mb-1" id="successRate">0%</h4>
+                          <p class="mb-0">Success Rate</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Partial Recovery Card -->
+                    <div class="col-md-3">
+                      <div class="card bg-warning text-white">
+                        <div class="card-body text-center">
+                          <i class="bx bx-time-five bx-lg mb-3 d-block"></i>
+                          <h4 class="text-white mb-1" id="partialRate">0%</h4>
+                          <p class="mb-0">Partial Recovery</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Treatment Failure Card -->
+                    <div class="col-md-3">
+                      <div class="card bg-danger text-white">
+                        <div class="card-body text-center">
+                          <i class="bx bx-x-circle bx-lg mb-3 d-block"></i>
+                          <h4 class="text-white mb-1" id="failureRate">0%</h4>
+                          <p class="mb-0">Treatment Failure</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Average Recovery Card -->
+                    <div class="col-md-3">
+                      <div class="card bg-info text-white">
+                        <div class="card-body text-center">
+                          <i class="bx bx-calendar bx-lg mb-3 d-block"></i>
+                          <h4 class="text-white mb-1" id="avgRecoveryDays">0</h4>
+                          <p class="mb-0">Avg Recovery (days)</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- / Content -->
+
+          <!-- Footer -->
+          <footer class="content-footer footer bg-footer-theme">
+            <div class="container-xxl">
+              <div
+                class="footer-container d-flex align-items-center justify-content-between py-4 flex-md-row flex-column">
+                <div class="text-body">
+                  ©
+                  <script>
+                    document.write(new Date().getFullYear());
+                  </script>
+                  MediTrack |
+                  <a href="https://infinitylinesofcode.com" target="_blank" class="footer-link">Infinity Lines of Code</a>
+                </div>
+              </div>
+            </div>
+          </footer>
+          <!-- / Footer -->
+
+          <div class="content-backdrop fade"></div>
+        </div>
+      </div>
+      <!-- / Layout page -->
+    </div>
+
+    <!-- Overlay -->
+    <div class="layout-overlay layout-menu-toggle"></div>
+    <!-- / Layout wrapper -->
+
+    <!-- Core JS -->
+    <script src="../assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="../assets/vendor/libs/popper/popper.js"></script>
+    <script src="../assets/vendor/js/bootstrap.js"></script>
+    <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="../assets/vendor/js/menu.js"></script>
+
+    <!-- Vendors JS -->
+    <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
+
+    <!-- MediTrack Modular System -->
+    <script src="../assets/js/config.js"></script>
+    <script src="../assets/js/utils.js"></script>
+    <script src="../assets/js/error-manager.js"></script>
+    <script src="../assets/js/loading-feedback.js"></script>
+    <script src="../assets/js/auth-manager.js"></script>
+    <script src="../assets/js/form-validator.js"></script>
+    <script src="../assets/js/form-handler.js"></script>
+    <script src="../assets/js/treatment-engine.js"></script>
+
+    <!-- Main JS -->
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/meditrack-main.js" data-handler="meditrack"></script>
+
+    <!-- Efficacy Tracking Module -->
+    <script>
+    /**
+     * Medicine Efficacy Tracking Interface
+     * Comprehensive tracking and analysis of medicine effectiveness
+     */
+    window.EfficacyTracking = {
+        charts: {},
+        currentFilter: null,
+
+        /**
+         * Initialize efficacy tracking
+         */
+        init: function() {
+            console.log('📊 Initializing Efficacy Tracking...');
+            this.initializeCharts();
+            this.loadEfficacyData();
+            this.setupClock();
+            console.log('✅ Efficacy Tracking ready!');
+        },
+
+        /**
+         * Initialize all charts
+         */
+        initializeCharts: function() {
+            // Top Medicines Chart
+            this.charts.topMedicines = new ApexCharts(document.querySelector('#topMedicinesChart'), {
+                chart: {
+                    type: 'bar',
+                    height: 350,
+                    horizontal: true
+                },
+                series: [{
+                    name: 'Efficacy Rate (%)',
+                    data: []
+                }],
+                xaxis: {
+                    categories: [],
+                    title: { text: 'Efficacy Rate (%)' }
+                },
+                colors: ['#71dd37'],
+                title: {
+                    text: 'Top 10 Most Effective Medicines',
+                    align: 'left'
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            position: 'top'
+                        }
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    formatter: function (val) {
+                        return val + '%';
+                    }
+                }
+            });
+
+            // Efficacy by Condition Chart
+            this.charts.efficacyByCondition = new ApexCharts(document.querySelector('#efficacyByConditionChart'), {
+                chart: {
+                    type: 'donut',
+                    height: 300
+                },
+                series: [],
+                labels: [],
+                colors: ['#696cff', '#8592a3', '#71dd37', '#ffab00', '#ff3e1d'],
+                legend: {
+                    position: 'bottom'
+                },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '70%'
+                        }
+                    }
+                }
+            });
+
+            // Recovery Time Trends Chart
+            this.charts.recoveryTrends = new ApexCharts(document.querySelector('#recoveryTimeTrendsChart'), {
+                chart: {
+                    type: 'line',
+                    height: 300
+                },
+                series: [{
+                    name: 'Average Recovery Time',
+                    data: []
+                }],
+                xaxis: {
+                    categories: [],
+                    title: { text: 'Medicine' }
+                },
+                yaxis: {
+                    title: { text: 'Days' }
+                },
+                colors: ['#ffab00'],
+                stroke: {
+                    curve: 'smooth',
+                    width: 3
+                }
+            });
+
+            // Age Group Effectiveness Chart
+            this.charts.ageGroupEffectiveness = new ApexCharts(document.querySelector('#ageGroupEffectivenessChart'), {
+                chart: {
+                    type: 'radar',
+                    height: 300
+                },
+                series: [{
+                    name: 'Efficacy Rate',
+                    data: []
+                }],
+                xaxis: {
+                    categories: ['Children', 'Teens', 'Young Adults', 'Adults', 'Seniors']
+                },
+                colors: ['#696cff']
+            });
+
+            // Render all charts
+            Object.values(this.charts).forEach(chart => chart.render());
+        },
+
+        /**
+         * Load efficacy data
+         */
+        loadEfficacyData: async function() {
+            try {
+                if (window.TreatmentEngine) {
+                    const analytics = TreatmentEngine.getAnalytics();
+                    this.updateCharts(analytics);
+                    this.updateTable();
+                    this.updateOutcomeCards();
+                }
+            } catch (error) {
+                console.error('Error loading efficacy data:', error);
+            }
+        },
+
+        /**
+         * Update charts with analytics data
+         */
+        updateCharts: function(analytics) {
+            // Update top medicines chart
+            const topMedicines = analytics.topPerformingMedicines.slice(0, 10);
+            this.charts.topMedicines.updateOptions({
+                xaxis: {
+                    categories: topMedicines.map(med => med.medicine)
+                }
+            });
+            this.charts.topMedicines.updateSeries([{
+                name: 'Efficacy Rate (%)',
+                data: topMedicines.map(med => med.efficacyRate.toFixed(1))
+            }]);
+
+            // Update efficacy by condition (simulate data)
+            const conditionData = {};
+            topMedicines.forEach(med => {
+                conditionData[med.condition] = (conditionData[med.condition] || 0) + 1;
+            });
+            
+            this.charts.efficacyByCondition.updateOptions({
+                labels: Object.keys(conditionData)
+            });
+            this.charts.efficacyByCondition.updateSeries(Object.values(conditionData));
+
+            // Update recovery trends
+            const recoveryData = topMedicines.slice(0, 8);
+            this.charts.recoveryTrends.updateOptions({
+                xaxis: {
+                    categories: recoveryData.map(med => med.medicine.substring(0, 10))
+                }
+            });
+            this.charts.recoveryTrends.updateSeries([{
+                name: 'Average Recovery Time',
+                data: recoveryData.map(med => med.averageRecoveryTime || 7)
+            }]);
+
+            // Update age group effectiveness (simulate data)
+            const ageEffectiveness = [85, 78, 92, 88, 75]; // Sample data
+            this.charts.ageGroupEffectiveness.updateSeries([{
+                name: 'Efficacy Rate',
+                data: ageEffectiveness
+            }]);
+        },
+
+        /**
+         * Update efficacy table
+         */
+        updateTable: function() {
+            const tbody = document.getElementById('efficacyTableBody');
+            
+            if (window.TreatmentEngine && TreatmentEngine.efficacyDatabase) {
+                const efficacyData = Array.from(TreatmentEngine.efficacyDatabase.values());
+                
+                // Apply current filter
+                let filteredData = efficacyData;
+                if (this.currentFilter) {
+                    filteredData = this.applyFilter(efficacyData);
+                }
+
+                if (filteredData.length === 0) {
+                    tbody.innerHTML = `
+                        <tr>
+                            <td colspan="9" class="text-center text-muted py-5">
+                                <i class="bx bx-data bx-lg mb-3 d-block"></i>
+                                No efficacy data found
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                tbody.innerHTML = filteredData.map(data => `
+                    <tr>
+                        <td><span class="fw-medium">${data.medicine}</span></td>
+                        <td>${data.condition}</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <span class="badge ${this.getEfficacyBadgeClass(data.efficacyRate)} me-2">${data.efficacyRate.toFixed(1)}%</span>
+                                <div class="progress" style="width: 60px; height: 6px;">
+                                    <div class="progress-bar" role="progressbar" style="width: ${data.efficacyRate}%"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge bg-info">${data.totalCases}</span></td>
+                        <td><span class="text-success fw-medium">${data.successfulTreatments}</span></td>
+                        <td>${data.averageRecoveryTime} days</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-1">
+                                ${Object.entries(data.ageGroups).map(([age, count]) => 
+                                    `<span class="badge bg-light text-dark" title="${count} cases">${age}</span>`
+                                ).join('')}
+                            </div>
+                        </td>
+                        <td><small class="text-muted">${new Date().toLocaleDateString()}</small></td>
+                        <td>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="javascript:void(0)" onclick="EfficacyTracking.viewDetails('${data.medicine}', '${data.condition}')">
+                                        <i class="bx bx-show me-2"></i>View Details
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0)" onclick="EfficacyTracking.editData('${data.medicine}', '${data.condition}')">
+                                        <i class="bx bx-edit me-2"></i>Edit Data
+                                    </a></li>
+                                    <li><a class="dropdown-item" href="javascript:void(0)" onclick="EfficacyTracking.exportMedicineData('${data.medicine}')">
+                                        <i class="bx bx-export me-2"></i>Export
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+        },
+
+        /**
+         * Get badge class for efficacy rate
+         */
+        getEfficacyBadgeClass: function(rate) {
+            if (rate >= 80) return 'bg-success';
+            if (rate >= 50) return 'bg-warning';
+            return 'bg-danger';
+        },
+
+        /**
+         * Apply filter to data
+         */
+        applyFilter: function(data) {
+            switch (this.currentFilter) {
+                case 'high':
+                    return data.filter(d => d.efficacyRate >= 80);
+                case 'medium':
+                    return data.filter(d => d.efficacyRate >= 50 && d.efficacyRate < 80);
+                case 'low':
+                    return data.filter(d => d.efficacyRate < 50);
+                default:
+                    return data;
+            }
+        },
+
+        /**
+         * Update outcome cards
+         */
+        updateOutcomeCards: function() {
+            // Simulate outcome data (replace with real data)
+            const successRate = 78;
+            const partialRate = 15;
+            const failureRate = 7;
+            const avgRecovery = 9;
+
+            document.getElementById('successRate').textContent = successRate + '%';
+            document.getElementById('partialRate').textContent = partialRate + '%';
+            document.getElementById('failureRate').textContent = failureRate + '%';
+            document.getElementById('avgRecoveryDays').textContent = avgRecovery;
+        },
+
+        /**
+         * Setup clock
+         */
+        setupClock: function() {
+            setInterval(() => {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString();
+                const clockElement = document.getElementById('clock');
+                if (clockElement) {
+                    clockElement.textContent = timeString;
+                }
+            }, 1000);
+        },
+
+        /**
+         * Filter by efficacy level
+         */
+        filterByEfficacy: function(level) {
+            this.currentFilter = level;
+            this.updateTable();
+            
+            const filterNames = {
+                'high': 'High Efficacy (>80%)',
+                'medium': 'Medium Efficacy (50-80%)',
+                'low': 'Low Efficacy (<50%)'
+            };
+            
+            NotificationManager.showToast({
+                title: 'Filter Applied',
+                message: `Showing ${filterNames[level]} medicines`,
+                type: 'info'
+            });
+        },
+
+        /**
+         * Clear all filters
+         */
+        clearFilters: function() {
+            this.currentFilter = null;
+            this.updateTable();
+            
+            NotificationManager.showToast({
+                title: 'Filters Cleared',
+                message: 'Showing all efficacy data',
+                type: 'info'
+            });
+        },
+
+        /**
+         * Refresh data
+         */
+        refreshData: function() {
+            LoadingManager.showSpinner(document.getElementById('efficacyTableBody'), {
+                message: 'Refreshing efficacy data...'
+            });
+            
+            setTimeout(() => {
+                this.loadEfficacyData();
+                LoadingManager.hideSpinner();
+                
+                NotificationManager.showToast({
+                    title: 'Data Refreshed',
+                    message: 'Efficacy data has been updated',
+                    type: 'success'
+                });
+            }, 1500);
+        },
+
+        /**
+         * View medicine details
+         */
+        viewDetails: function(medicine, condition) {
+            ModalManager.show(`Efficacy Details: ${medicine}`, `
+                <div class="row g-3">
+                    <div class="col-12">
+                        <h6>Medicine: ${medicine}</h6>
+                        <p><strong>Condition:</strong> ${condition}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Efficacy Rate:</strong> 85.2%
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Total Cases:</strong> 156
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Successful Treatments:</strong> 133
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Average Recovery:</strong> 8.5 days
+                    </div>
+                    <div class="col-12">
+                        <strong>Age Group Performance:</strong>
+                        <ul class="mt-2">
+                            <li>Children (0-12): 92% efficacy</li>
+                            <li>Teens (13-18): 88% efficacy</li>
+                            <li>Adults (19-55): 84% efficacy</li>
+                            <li>Seniors (56+): 78% efficacy</li>
+                        </ul>
+                    </div>
+                </div>
+            `, 'Close');
+        },
+
+        /**
+         * Edit efficacy data
+         */
+        editData: function(medicine, condition) {
+            ModalManager.show(`Edit Efficacy Data: ${medicine}`, `
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Medicine</label>
+                        <input type="text" class="form-control" value="${medicine}" readonly>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Condition</label>
+                        <input type="text" class="form-control" value="${condition}" readonly>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Total Cases</label>
+                        <input type="number" class="form-control" id="editTotalCases" min="1">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Successful Treatments</label>
+                        <input type="number" class="form-control" id="editSuccessful" min="0">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Average Recovery Time (days)</label>
+                        <input type="number" class="form-control" id="editRecoveryTime" min="1" max="90">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Side Effects Reported</label>
+                        <input type="number" class="form-control" id="editSideEffects" min="0">
+                    </div>
+                </div>
+            `, 'Save Changes', () => {
+                this.saveEfficacyData(medicine, condition);
+            });
+        },
+
+        /**
+         * Save efficacy data
+         */
+        saveEfficacyData: function(medicine, condition) {
+            NotificationManager.showToast({
+                title: 'Data Updated',
+                message: `Efficacy data for ${medicine} has been updated`,
+                type: 'success'
+            });
+            
+            // Refresh the display
+            this.loadEfficacyData();
+        },
+
+        /**
+         * Add new efficacy data
+         */
+        addEfficacyData: function() {
+            ModalManager.show('Add New Efficacy Data', `
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Medicine Name</label>
+                        <input type="text" class="form-control" id="newMedicine" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Condition</label>
+                        <select class="form-control" id="newCondition" required>
+                            <option value="">Select Condition</option>
+                            <option value="Respiratory Infections">Respiratory Infections</option>
+                            <option value="Urinary Tract Infections">Urinary Tract Infections</option>
+                            <option value="Gastrointestinal System">Gastrointestinal System</option>
+                            <option value="Skin And Soft Tissue">Skin And Soft Tissue</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Total Cases</label>
+                        <input type="number" class="form-control" id="newTotalCases" min="1" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Successful Treatments</label>
+                        <input type="number" class="form-control" id="newSuccessful" min="0" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Average Recovery Time (days)</label>
+                        <input type="number" class="form-control" id="newRecoveryTime" min="1" max="90" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Dosage Information</label>
+                        <input type="text" class="form-control" id="newDosage" placeholder="e.g., 500mg twice daily">
+                    </div>
+                </div>
+            `, 'Add Data', () => {
+                this.saveNewEfficacyData();
+            });
+        },
+
+        /**
+         * Save new efficacy data
+         */
+        saveNewEfficacyData: function() {
+            const medicine = document.getElementById('newMedicine').value;
+            const condition = document.getElementById('newCondition').value;
+            const totalCases = parseInt(document.getElementById('newTotalCases').value);
+            const successful = parseInt(document.getElementById('newSuccessful').value);
+            const recoveryTime = parseInt(document.getElementById('newRecoveryTime').value);
+
+            if (!medicine || !condition || !totalCases || successful === undefined || !recoveryTime) {
+                NotificationManager.showToast({
+                    title: 'Incomplete Data',
+                    message: 'Please fill in all required fields',
+                    type: 'warning'
+                });
+                return;
+            }
+
+            if (successful > totalCases) {
+                NotificationManager.showToast({
+                    title: 'Invalid Data',
+                    message: 'Successful treatments cannot exceed total cases',
+                    type: 'error'
+                });
+                return;
+            }
+
+            NotificationManager.showToast({
+                title: 'Data Added',
+                message: `Efficacy data for ${medicine} has been added successfully`,
+                type: 'success'
+            });
+            
+            // Refresh the display
+            this.loadEfficacyData();
+        },
+
+        /**
+         * Export medicine data
+         */
+        exportMedicineData: function(medicine) {
+            NotificationManager.showToast({
+                title: 'Export Started',
+                message: `Exporting efficacy data for ${medicine}`,
+                type: 'info'
+            });
+        },
+
+        /**
+         * Export complete report
+         */
+        exportReport: function() {
+            ModalManager.show('Export Efficacy Report', `
+                <div class="row g-3">
+                    <div class="col-12">
+                        <label class="form-label">Report Type</label>
+                        <select class="form-control" id="reportType">
+                            <option value="complete">Complete Efficacy Report</option>
+                            <option value="summary">Executive Summary</option>
+                            <option value="medicine">By Medicine</option>
+                            <option value="condition">By Condition</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <label class="form-label">Format</label>
+                        <select class="form-control" id="exportFormat">
+                            <option value="pdf">PDF Document</option>
+                            <option value="excel">Excel Spreadsheet</option>
+                            <option value="csv">CSV Data</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="includeCharts" checked>
+                            <label class="form-check-label" for="includeCharts">
+                                Include charts and visualizations
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            `, 'Export', () => {
+                const reportType = document.getElementById('reportType').value;
+                const format = document.getElementById('exportFormat').value;
+                
+                NotificationManager.showToast({
+                    title: 'Export Started',
+                    message: `Generating ${reportType} in ${format.toUpperCase()} format...`,
+                    type: 'success'
+                });
+            });
+        }
+    };
+
+    // Initialize when DOM is ready
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            EfficacyTracking.init();
+        }, 2000);
+    });
+    </script>
+  </body>
+</html>

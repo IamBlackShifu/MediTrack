@@ -20,7 +20,7 @@ window.ErrorManager = {
         logging: {
             enabled: true,
             logToConsole: true,
-            logToServer: true,
+            logToServer: false, // Disabled for local development - will be auto-detected
             logLevel: 'error', // 'debug', 'info', 'warn', 'error', 'fatal'
             maxLogEntries: 100,
             serverEndpoint: '/api/logs/client-errors'
@@ -132,12 +132,36 @@ window.ErrorManager = {
      * Initializes the error manager
      */
     init: function() {
+        // Auto-detect if we're running on a local development server
+        this.detectEnvironment();
+        
         this.setupGlobalErrorHandlers();
         this.setupUnhandledRejectionHandler();
         this.setupNetworkErrorHandler();
         this.loadPreviousErrors();
         
         console.log('ErrorManager: Initialized successfully');
+    },
+
+    /**
+     * Detects the environment and adjusts configuration accordingly
+     */
+    detectEnvironment: function() {
+        const hostname = window.location.hostname;
+        const port = window.location.port;
+        
+        // Check if we're running on localhost or local IP with Python dev server
+        const isLocalhost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
+        const isPythonDevServer = port === '8000' || port === '8080';
+        
+        if (isLocalhost || isPythonDevServer) {
+            console.log('ErrorManager: Local development environment detected, disabling server logging');
+            this.config.logging.logToServer = false;
+        } else {
+            // Only enable server logging in production
+            this.config.logging.logToServer = true;
+        }
+    },
     },
 
     /**
@@ -392,6 +416,12 @@ window.ErrorManager = {
      * @private
      */
     sendErrorToServer: async function(errorObj) {
+        // Check if server logging is enabled
+        if (!this.config.logging.logToServer) {
+            console.debug('ErrorManager: Server logging disabled, skipping');
+            return;
+        }
+
         try {
             // Prepare error data for server
             const logData = {
@@ -409,7 +439,7 @@ window.ErrorManager = {
                 delete logData.stack;
             }
 
-            await fetch(this.config.logging.serverEndpoint, {
+            const response = await fetch(this.config.logging.serverEndpoint, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -417,9 +447,26 @@ window.ErrorManager = {
                 },
                 body: JSON.stringify(logData)
             });
+
+            // If server doesn't support POST (501 error), disable server logging
+            if (response.status === 501) {
+                console.warn('ErrorManager: Server does not support error logging, disabling server logging');
+                this.config.logging.logToServer = false;
+                return;
+            }
+
+            if (!response.ok) {
+                throw new Error(`Server responded with status: ${response.status}`);
+            }
+
         } catch (error) {
+            // If it's a network error or 501, disable server logging
+            if (error.message.includes('501') || error.name === 'TypeError') {
+                console.warn('ErrorManager: Disabling server logging due to server incompatibility');
+                this.config.logging.logToServer = false;
+            }
             // Fail silently to avoid infinite error loops
-            console.debug('ErrorManager: Server logging failed:', error);
+            console.debug('ErrorManager: Server logging failed:', error.message);
         }
     },
 

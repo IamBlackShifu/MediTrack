@@ -343,19 +343,14 @@
                                               datestocked: data[headers.indexOf('datestocked')]
                                           };
                   
-                                          // Send the data to Strapi
-                                          fetch('https://pathoguide.co.zw:1338/api/pharmacyrecords', {
-                                              method: 'POST',
-                                              headers: {
-                                                  ...TokenManager.getAuthHeader(),
-                                                  'Content-Type': 'application/json'
-                                              },
-                                              body: JSON.stringify({ data: payload })
-                                          })
-                                          .then(response => response.json())
-                                          .then(data => {
+                                          // Send the data to Supabase
+                                          ApiHelper.pharmacyRecords.create(payload)
+                                          .then(({ data, error }) => {
+                                              if (error) {
+                                                  throw error;
+                                              }
                                               console.log('Successfully added:', data);
-                                              alert(`Record for ${payload.data} was successfully submitted!`);
+                                              alert(`Record for ${payload.medicine} was successfully submitted!`);
                                           })
                                           .catch(error => {
                                               console.error('Error:', error);
